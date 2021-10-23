@@ -1,0 +1,90 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="264ea835-cff0-4e09-89bc-4f761546f1af">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="72d5e75c-fe36-4ca9-8c24-eaa4052dddf6">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="f57391a9-a055-42b2-9a9b-734a1961e0d2"
+				serviceId="nabu.misc.git.Services.release"
+				resultName="result76209548017048269b3ec11fcc859cb6"
+				temporaryMapping="true"
+				x="91"
+				y="61"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="94fc4241-e980-43f1-87d7-7f184fe8df0b"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/project</from>
+				<to>id</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="32c30867-33fa-44bf-a81a-abb30f7b43f2"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/query/message</from>
+				<to>message</to>
+			</steps>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="595ed069-d560-4c59-ad74-e4ace31a2469">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="2211f89a-50ae-4698-933b-dd524300dace"
+				serviceId="nabu.misc.git.Services.builds"
+				resultName="resulted39685db0204623b405f3841900fe6d"
+				temporaryMapping="true"
+				x="55"
+				y="52"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="c891211a-61fd-422a-b279-56657157ae76"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>resulted39685db0204623b405f3841900fe6d/builds[name = /input/path/project]</from>
+			<to>localBuild</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="If it is locally built, immediately build it"
+			disabled="false"
+			id="3d763895-fa7a-4c5c-ba97-319ff8f4d2dd"
+			label="localBuild">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="e5253069-d56c-44cb-81dd-5e5d231f332d"
+				serviceId="nabu.misc.git.manage.builds.build"
+				resultName="result4150bb2b26bf43f3b91b776bfe65068a"
+				temporaryMapping="true"
+				x="145"
+				y="97"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="e845931c-d921-4a08-ac29-efa27b4a3c23"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/project</from>
+				<to>path/project</to>
+			</steps>
+		</steps>
+	</steps>
+</sequence>

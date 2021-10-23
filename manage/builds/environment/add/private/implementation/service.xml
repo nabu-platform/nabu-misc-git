@@ -1,0 +1,47 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="dddcc965-7fb2-469c-b95e-b6f626de2c18">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="3e128d1b-fcc4-404e-bb61-462fbdbb8796">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="479653c3-34db-43c2-a5b3-e1e8ecfb8b2b"
+				serviceId="nabu.misc.git.Services.addEnvironment"
+				resultName="result6030dfbe244b4a86ab752245562a3885"
+				temporaryMapping="true"
+				x="350"
+				y="101"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="40ab4c32-27a7-46fc-85ae-32b28dbfd7eb"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/project</from>
+				<to>name</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="35b464d0-84b7-4f8d-8cf5-61b1e7b06d08"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/content/name</from>
+				<to>environment</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="92f9236b-6f6b-41ea-b415-f37d7d4502bb"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/content/copyFrom</from>
+				<to>copyEnvironment</to>
+			</steps>
+		</steps>
+	</steps>
+</sequence>

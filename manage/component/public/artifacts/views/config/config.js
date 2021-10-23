@@ -24,18 +24,31 @@ Vue.view("environment-config", {
 		visibleEntries: function() {
 			if (this.merge.entries) {
 				var self = this;
-				return this.merge.entries.filter(function(entry) {
+				var entries = this.merge.entries.filter(function(entry) {
 					var show = true;
 					if (self.changedOnly && !entry.changed) {
 						show = false;
 					}
 					if (self.entrySearch) {
 						if (entry.entryId.toLowerCase().indexOf(self.entrySearch) < 0) {
-							show = false;
+							if (entry.tags) {
+								if (entry.tags.filter(function(x) {
+											return x.toLowerCase().indexOf(self.entrySearch) >= 0;
+										}).length == 0) {
+									show = false;
+								}
+							}
+							else {
+								show = false;
+							}
 						}
 					}
 					return show;
 				});
+				entries.sort(function(a, b) {
+					return a.entryId.localeCompare(b.entryId);	
+				});
+				return entries;
 			}
 			else {
 				return [];
@@ -44,7 +57,7 @@ Vue.view("environment-config", {
 		visibleParameters: function() {
 			var self = this;
 			if (this.selected && this.selected.parameters) {
-				return this.selected.parameters.filter(function(x) {
+				var parameters = this.selected.parameters.filter(function(x) {
 					var show = true;
 					if (self.changedParamOnly && !x.changed) {
 						show = false;
@@ -66,6 +79,7 @@ Vue.view("environment-config", {
 					}
 					return show;
 				});
+				return parameters;
 			}
 			else {
 				return [];

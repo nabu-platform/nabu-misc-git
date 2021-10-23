@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2021-10-23T12:23:41.992+02:00" lastModified="2021-10-23T12:25:01.368+02:00" leaf="true" version="7">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <properties/>
+    <references>java.lang.Long</references>
+    <references>java.lang.String</references>
+    <references>nabu.misc.git.Services.zip</references>
+    <references>java.io.InputStream</references>
+</node>

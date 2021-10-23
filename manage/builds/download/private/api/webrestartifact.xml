@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <restInterface>
-    <method>POST</method>
-    <path>/build/{project}</path>
+    <method>GET</method>
+    <path>/build/{project}/archive/{branch}</path>
     <role>$user</role>
+    <outputAsStream>true</outputAsStream>
     <lenient>true</lenient>
     <webApplicationId>false</webApplicationId>
     <geoPosition>false</geoPosition>

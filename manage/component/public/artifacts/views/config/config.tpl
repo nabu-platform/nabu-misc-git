@@ -6,7 +6,7 @@
 		</div>
 		<n-form class="environment-config-content">
 			<div class="merge-entries" v-if="merge.entries">
-				<h2>Entries</h2>
+				<h2>Entries<span class="tag">{{project}}</span><span class="tag">{{branch}}</span></h2>
 				<div class="entries-filters">
 					<n-form-text v-model="entrySearch" placeholder="Search"/>
 					<n-form-checkbox v-model="changedOnly" label="Show only changed"/>
@@ -31,9 +31,19 @@
 						<n-form-switch v-else-if="parameter.type == 'boolean'" :value="parameter.current == 'true'" @input="function(value) { parameter.current = value ? 'true' : 'false' }"
 							:label="paramLabel(parameter)" :after="parameter.description"
 							:info="values(parameter)"/>
+						<n-form-text v-else-if="parameter.type == 'password'" v-model="parameter.current" :label="paramLabel(parameter)"
+							:after="parameter.description"
+							:info="values(parameter)"
+							:placeholder="parameter.defaultValue"
+							type="password"/>
 						<n-form-text v-else v-model="parameter.current" :label="paramLabel(parameter)"
 							:after="parameter.description"
-							:info="values(parameter)"/>
+							:info="values(parameter)"
+							:placeholder="parameter.defaultValue"/>
+						<div class="buttons">
+							<button class="reset-button inline" @click="parameter.current = parameter.previous" title="Reset to previous"><span class="fa fa-undo"></span></button>
+							<button class="reset-button inline" @click="parameter.current = parameter.raw" title="Reset to raw"><span class="fa fa-times"></span></button>
+						</div>
 					</div>
 				</n-collapsible>
 				<div v-if="visibleParameters.length == 0">No parameters match your filter</div>

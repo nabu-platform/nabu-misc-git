@@ -1,0 +1,4 @@
+<structure name="environmentInput">
+    <field name="name" type="java.lang.String"/>
+    <field minOccurs="0" name="copyFrom" type="java.lang.String"/>
+</structure>

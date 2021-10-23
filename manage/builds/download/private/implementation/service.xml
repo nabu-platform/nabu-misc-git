@@ -1,0 +1,65 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="c89cd7bf-8156-4e74-b005-52f87398d2ab">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="9135c870-02d4-402e-9b35-2695ebbaacfe">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="7ac0f5ac-1554-4a37-802b-d2125c6d74c4"
+				serviceId="nabu.misc.git.Services.zip"
+				resultName="result83c98cd0fcaf46cb85f9250f51adb8dd"
+				temporaryMapping="true"
+				x="103"
+				y="51"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="fccdc989-60b7-41fc-b8fa-ca39542a07c8"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/project</from>
+				<to>name</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="f5838335-560e-4c70-880e-6f9d84f83bec"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/branch</from>
+				<to>branch</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="c1839b6b-3614-474c-9e05-cf2e958e1358"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result83c98cd0fcaf46cb85f9250f51adb8dd/zip</from>
+			<to>output/content</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="705a5db5-760c-47d3-8f57-25a151733c4a"
+				mask="false"
+				optional="false"
+				fixedValue="true">
+			<from>=input/path/project + "-" + input/path/branch + ".zip"</from>
+			<to>output/meta/fileName</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="1b007693-6858-4604-8b49-5d8392fcd11b"
+				mask="false"
+				optional="false"
+				fixedValue="true">
+			<from>application/zip</from>
+			<to>output/meta/contentType</to>
+		</steps>
+	</steps>
+</sequence>

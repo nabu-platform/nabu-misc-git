@@ -1,0 +1,5 @@
+<structure interface="nabu.misc.git.manage.release.create:api" name="pipeline">
+    <structure name="input"/>
+    <structure name="output"/>
+    <structure definition="be.nabu.eai.module.git.GitInformation" minOccurs="0" name="localBuild"/>
+</structure>

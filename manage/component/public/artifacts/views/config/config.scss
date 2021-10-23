@@ -2,9 +2,13 @@
 	.tag {
 		margin-left: 1rem;
 	}
+	.selector-cell {
+		// some margin...
+		max-width: calc(25vw - 1rem);
+	}
 }
 .environment-config {
-	width: 70vw;
+	width: 80vw;
 	.environment-config-content {
 		.n-form-content {
 			display: flex;
@@ -39,7 +43,7 @@
 		}
 	}
 	.merge-parameters {
-		width: 50vw;
+		width: 60vw;
 		padding: 1rem;
 		.n-collapsible-content {
 			padding: 1rem;
@@ -51,7 +55,6 @@
 			font-weight: normal;
 		}
 		.n-info-content {
-			min-width: 30vw;
 			line-height: 1rem;
 		}
 		.n-collapsible-title {
@@ -65,13 +68,94 @@
 		.n-collapsible + .n-collapsible {
 			border-top: solid 1px #ccc;
 		}
-		.tag {
-			text-transform: none;
-			font-size: 0.9rem !important;
-			margin-left: 1rem;
+		.merge-parameter {
+			display: flex;
+			align-items: flex-start;
+			.buttons {
+				flex-grow: 0;
+				white-space: nowrap;
+				border: solid 1px $warning-color;
+				padding: 0.3rem;
+				margin-left: 0.7rem;
+				background-color: lighten($warning-color, 60%);
+				border-radius: 5px;
+			}
 		}
+	}
+	.tag {
+		text-transform: none;
+		font-size: 0.9rem !important;
+		margin-left: 1rem;
 	}
 	.merge-log, .merge-error {
 		margin-top: 2rem;
+	}
+	
+	.n-form-component {
+		> .n-form-label-wrapper {
+			/* to position n-info correctly */
+			position: relative;
+			display: flex;
+			padding: 0;
+			margin: 0;
+			/* to match the border radius of the input fields that are often underneath it */
+			margin-left: 3px;
+			/* remove the border */
+			margin-right: auto;
+			border: solid 1px $page-primary-dark;
+			background-color: $page-primary;
+			border-radius: 5px;
+			border-bottom: none;
+			> label {
+				color: #666666 !important;
+				font-size: 0.9rem !important;
+				margin: 0.3rem !important;
+				padding: 0 0.3rem !important;
+				
+			}
+			.n-info {
+				position: static;
+				color: $page-primary-text;
+				top: 0.3rem;
+				line-height: 1.2rem;
+				margin: 0;
+				margin-top: 1px;
+				.fa {
+					line-height: unset;
+					&:before {
+						font-size: 10px;
+					}
+				}
+				.n-info-content {
+					left: 0;
+					line-height: 0.9rem;
+					font-size: 0.8rem;
+				}
+			}
+		}
+	}
+	.n-form-switch.n-form-checkbox {
+		margin-bottom: 3rem;
+		width: auto;
+		label.n-form-label {
+			line-height: 1.5rem !important;
+			padding-left: 2.5rem !important;
+			&:before {
+				height: 1.5rem !important;
+				width: 2.7rem !important;
+				border-radius: 8px;
+			}
+			&:after {
+				height: 1.0rem !important;
+				width: 1rem;
+				border-radius: 8px;
+			}
+		}
+		.n-info {
+			margin-left: 0.3rem;
+		}
+		.n-form-component-after {
+			margin-left: -1rem;
+		}
 	}
 }
