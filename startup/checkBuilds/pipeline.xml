@@ -1,0 +1,6 @@
+<structure name="pipeline">
+    <structure name="input"/>
+    <structure name="output"/>
+    <structure definition="be.nabu.eai.module.git.GitInformation" maxOccurs="unbounded" minOccurs="0" name="builds"/>
+    <field name="locked" type="java.lang.Boolean"/>
+</structure>

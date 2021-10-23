@@ -1,0 +1,73 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="4da2a43e-f64c-4c4c-bc77-f319ad3f77e3">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="f992b4ec-9609-4dc3-969f-691faf26763e">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="1dc70a22-167d-4341-8019-046f293fdb3e"
+				serviceId="nabu.misc.git.Services.buildInformation"
+				resultName="resultce4fcdaf1a3d4450aff3b39c4af52c7a"
+				temporaryMapping="true"
+				x="48"
+				y="41"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="5594751d-a3d0-4ead-b186-213e13990b2b"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/project</from>
+				<to>name</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="56a6d334-a455-4a8b-8a8d-9d3aa5cf06a8"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>resultce4fcdaf1a3d4450aff3b39c4af52c7a/build</from>
+			<to>output/content</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="To avoid down scrolling, we reverse"
+			disabled="false"
+			id="7e96e6eb-ac1b-4267-bc8d-e32af63be9a8">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="1c24ec46-9977-4d07-bef6-6c40aa1cc9be"
+				serviceId="nabu.utils.List.reverse"
+				resultName="result96ff2ae10612424d970bbd5a4d4caf3a"
+				temporaryMapping="true"
+				x="90"
+				y="44"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="df8afeae-7122-47f2-84d2-f479d9174dde"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>output/content/releases</from>
+				<to>list</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="5205c33e-45a9-4e1a-8551-eed3952fd487"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result96ff2ae10612424d970bbd5a4d4caf3a/list</from>
+			<to>output/content/releases</to>
+		</steps>
+	</steps>
+</sequence>

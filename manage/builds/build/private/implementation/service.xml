@@ -1,0 +1,29 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="cd95c1f8-41ee-4942-9afc-86987c13e277">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="00406233-d524-48b3-ad35-e2fd416f679f">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="db2ea0fd-5c84-4220-bee4-01a3212d496f"
+				serviceId="nabu.misc.git.Services.build"
+				resultName="result1849605609794552a0f8a63ef564a480"
+				temporaryMapping="true"
+				x="86"
+				y="72"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="a93fc61a-fc13-49fd-9b73-957e57c02270"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/project</from>
+				<to>name</to>
+			</steps>
+		</steps>
+	</steps>
+</sequence>

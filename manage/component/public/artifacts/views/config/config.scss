@@ -1,0 +1,77 @@
+.page-builds {
+	.tag {
+		margin-left: 1rem;
+	}
+}
+.environment-config {
+	width: 70vw;
+	.environment-config-content {
+		.n-form-content {
+			display: flex;
+		}
+	}
+	.merge-actions {
+		padding: 1rem;
+		border-bottom: solid 2px #ccc;
+		text-align: right;
+	}
+	.entries-filters {
+		padding: 1rem 0rem;
+		//display: flex;
+		//align-items: center;
+		input {
+			height: 2rem;
+		}
+	}
+	.merge-entries {
+		width: calc(20vw - 2px);
+		border-right: solid 2px #ccc;
+		padding: 1rem;
+		.merge-entry {
+			padding: 0.3rem 0.7rem;
+			cursor: pointer;
+			&:hover {
+				background-color: #eaeaea;
+			}
+			&.selected {
+				font-weight: bold;
+			}
+		}
+	}
+	.merge-parameters {
+		width: 50vw;
+		padding: 1rem;
+		.n-collapsible-content {
+			padding: 1rem;
+			padding-bottom: 0;
+		}
+		.value-key {
+			color: #aaa;
+			margin-right: 0.3rem;
+			font-weight: normal;
+		}
+		.n-info-content {
+			min-width: 30vw;
+			line-height: 1rem;
+		}
+		.n-collapsible-title {
+			padding: 0.7rem;
+			background-color: #eaeaea;
+			margin: 0;
+			.n-icon {
+				margin-right: 0.7rem;
+			}
+		}
+		.n-collapsible + .n-collapsible {
+			border-top: solid 1px #ccc;
+		}
+		.tag {
+			text-transform: none;
+			font-size: 0.9rem !important;
+			margin-left: 1rem;
+		}
+	}
+	.merge-log, .merge-error {
+		margin-top: 2rem;
+	}
+}

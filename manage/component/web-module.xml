@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webModule>
+    <path>/git</path>
+    <webFragments>nabu.misc.git.manage.builds.build</webFragments>
+    <webFragments>nabu.misc.git.manage.builds.configure</webFragments>
+    <webFragments>nabu.misc.git.manage.builds.list</webFragments>
+    <webFragments>nabu.misc.git.manage.builds.get</webFragments>
+    <webFragments>nabu.misc.git.manage.builds.merge.get</webFragments>
+    <webFragments>nabu.misc.git.manage.builds.merge.set</webFragments>
+    <webFragments>nabu.misc.git.manage.builds.wakeup</webFragments>
+    <audience>MANAGER</audience>
+</webModule>

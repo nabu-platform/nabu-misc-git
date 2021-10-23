@@ -1,0 +1,30 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="d84b81fa-d63b-409f-a791-2bafd2d106b4">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Only run on one server, only one can build anyway"
+			disabled="false"
+			id="ac3e00e7-73cf-4349-b61e-3948988186fd">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="16945c76-93b0-4706-9e58-89196219eaa1"
+				serviceId="nabu.utils.Runtime.interrupt"
+				resultName="result10c211c1fcf642fd8de25290d867efd1"
+				temporaryMapping="true"
+				x="62"
+				y="68"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="8e1a2615-008d-40d6-ae28-47481b2f928a"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>nabu.misc.git.startup.checkBuildsStartup</from>
+				<to>artifactId</to>
+			</steps>
+		</steps>
+	</steps>
+</sequence>

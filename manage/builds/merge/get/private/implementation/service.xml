@@ -1,0 +1,47 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="0264071c-42fd-4605-9fdd-8aac69cc6299">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="55eeee98-fe54-4a91-b84e-e712dae73719">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="120978e7-f901-4e8f-bc99-9f71085f7751"
+				serviceId="nabu.misc.git.Services.getMergeResult"
+				resultName="result8664e145feab453c817e72363b560fe4"
+				temporaryMapping="true"
+				x="100"
+				y="60"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="eef899f1-2e4f-4cdf-851d-30ac907b1d51"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/branch</from>
+				<to>branch</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="89fa983f-7ef9-41a4-aa82-5d45b71ced9a"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/project</from>
+				<to>name</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="0e358dd8-7b5b-4b22-ab16-95958f74cdfc"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result8664e145feab453c817e72363b560fe4/result</from>
+			<to>output/content</to>
+		</steps>
+	</steps>
+</sequence>

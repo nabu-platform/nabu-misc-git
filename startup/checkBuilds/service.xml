@@ -1,0 +1,197 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="a7b95d3e-8c39-4cc3-b7d0-80ba3203219f">
+	<steps xsi:type="be.nabu.libs.services.vm.step.For"
+			disabled="false"
+			id="f728180a-3ef0-4106-9246-5cd290b0b82e">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
+				disabled="false"
+				id="4bf3df97-7c6d-4c6e-921f-6c419d0076e9">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					disabled="false"
+					id="09caba12-6a84-4627-9e19-0db18205800a">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="450734ac-6e78-46b8-b95d-eb474aa736eb"
+						serviceId="nabu.utils.Lock.tryLock"
+						resultName="result085a48f3e0924513b36a6c28a59ce0f0"
+						temporaryMapping="true"
+						x="65"
+						y="11"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="09d8f113-00e2-4cdc-bbbd-d15ad0be1fbd"
+							mask="false"
+							optional="false"
+							fixedValue="true">
+						<from>false</from>
+						<to>local</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="ae56877a-e68d-4738-b33a-7489274a2d16"
+							mask="false"
+							optional="false"
+							fixedValue="true">
+						<from>git-build</from>
+						<to>name</to>
+					</steps>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="00cfb081-8b9a-45a9-b899-85fea148a421"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>result085a48f3e0924513b36a6c28a59ce0f0/locked</from>
+					<to>locked</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
+					comment="Only one can build in a cluster"
+					disabled="false"
+					id="47128d31-a630-4b10-8ed9-37a730ad06eb"
+					label="locked">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+						comment="Get all the builds"
+						disabled="false"
+						id="9798f214-fca5-4eca-b884-1837e83c4155">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+							disabled="false"
+							id="034feb70-17ed-4461-8900-8d7a465127f9"
+							serviceId="nabu.misc.git.Services.builds"
+							resultName="resultf10ba261a0d143f1a237175c7ea0091d"
+							temporaryMapping="true"
+							x="84"
+							y="58"
+							invocationOrder="0"
+							asynchronous="false"
+							recache="false">
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="609e7354-e9d4-492d-a903-50f6d50c9c24"
+							mask="false"
+							optional="false"
+							fixedValue="false">
+						<from>resultf10ba261a0d143f1a237175c7ea0091d/builds</from>
+						<to>builds</to>
+					</steps>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.For"
+						disabled="false"
+						id="cd89f618-f46e-409c-95b4-1c1b490ecd93"
+						variable="build">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+							disabled="false"
+							id="784c470d-eb3b-4231-a489-c2bcb3d3462e">
+						<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+								disabled="false"
+								id="e541982a-af04-4c83-a2f2-9d8d876c7d37"
+								serviceId="nabu.misc.git.Services.build"
+								resultName="resultc9644ef666504f6e8b227cb33f2c31d7"
+								temporaryMapping="true"
+								x="84"
+								y="68"
+								invocationOrder="0"
+								asynchronous="false"
+								recache="false">
+							<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+									disabled="false"
+									id="d3e516fb-dd33-453b-bc7a-2aabbff45dd2"
+									mask="false"
+									optional="false"
+									fixedValue="false">
+								<from>build/name</from>
+								<to>name</to>
+							</steps>
+						</steps>
+					</steps>
+					<query>builds</query>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Finally"
+						disabled="false"
+						id="26bf226a-e569-4a8d-ab38-8e5d0b4378a0">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+							disabled="false"
+							id="7f85382d-271c-4f80-a378-5c72dc06b0cb">
+						<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+								disabled="false"
+								id="67460321-697f-41e6-b6d2-889f3ed162d5"
+								serviceId="nabu.utils.Lock.unlock"
+								resultName="resulte15cc714b38d4f408dd64259495dfa1e"
+								temporaryMapping="true"
+								x="55"
+								y="55"
+								invocationOrder="0"
+								asynchronous="false"
+								recache="false">
+							<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+									disabled="false"
+									id="39c1dcc8-cc32-4a10-8e7b-d31d591d7468"
+									mask="false"
+									optional="false"
+									fixedValue="true">
+								<from>git-build</from>
+								<to>name</to>
+							</steps>
+							<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+									disabled="false"
+									id="b63e3032-4a11-4a06-948c-429277240d21"
+									mask="false"
+									optional="false"
+									fixedValue="true">
+								<from>false</from>
+								<to>local</to>
+							</steps>
+						</steps>
+					</steps>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					comment="We check every 10 minutes"
+					disabled="false"
+					id="10f55505-458b-41e8-960c-bb167fc49d26">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="e43b238a-f060-41c4-af4a-91af9e9d56be"
+						serviceId="nabu.utils.Server.sleep"
+						resultName="result8fe3e9b3fd484d60bcc6933a9f7570b9"
+						temporaryMapping="true"
+						x="93"
+						y="70"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="1ae88a11-e276-4ced-90f7-648b50036269"
+							mask="false"
+							optional="false"
+							fixedValue="true">
+						<from>10</from>
+						<to>amount</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="b6adca69-1e92-4102-ae3e-811d4a24e6a1"
+							mask="false"
+							optional="false"
+							fixedValue="true">
+						<from>MINUTES</from>
+						<to>unit</to>
+					</steps>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Catch"
+					comment="You can interrupt this to force a build cycle"
+					disabled="false"
+					id="39bb0f78-c18a-4040-aa9e-853778f33b8d">
+			</steps>
+		</steps>
+		<query>true</query>
+	</steps>
+</sequence>
