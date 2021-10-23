@@ -3,6 +3,7 @@
     <method>POST</method>
     <path>/build/{project}/configure</path>
     <role>$user</role>
+    <input>nabu.misc.git.manage.builds.configureInput</input>
     <lenient>true</lenient>
     <webApplicationId>false</webApplicationId>
     <geoPosition>false</geoPosition>

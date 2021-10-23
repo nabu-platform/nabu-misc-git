@@ -1,4 +1,69 @@
 <sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		disabled="false"
 		id="d9db0289-68a7-432c-882c-0750186bf2c2">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="9dd1579d-9b8a-4f45-8c5a-975dbe490fca">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="24270652-3535-46c2-bac1-3f4c582ee3c5"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>input/content/description</from>
+			<to>configuration/description</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="143c1aee-3b57-44f3-b8f0-478f90f6457e"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>input/content/password</from>
+			<to>configuration/password</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="1285141c-9d42-4b20-be64-4a73cf7d664f"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>input/content/username</from>
+			<to>configuration/username</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="056995da-0fe3-4dc9-9d7d-c1c7e6e865a9"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>input/path/project</from>
+			<to>configuration/name</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="760a1ac6-e7ae-46b7-b8dc-e339c46e7a6a">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="2711d55a-da4d-4465-ae69-6b365d4aecda"
+				serviceId="nabu.misc.git.Services.configure"
+				resultName="result78fccca9b1994280a46e22ee2b297a47"
+				temporaryMapping="true"
+				x="176"
+				y="88"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="b3e6521b-254f-4b38-965a-9e0f888f2ea5"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>configuration</from>
+				<to>configuration</to>
+			</steps>
+		</steps>
+	</steps>
 </sequence>

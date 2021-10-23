@@ -1,4 +1,5 @@
-<structure interface="$self:api" name="pipeline">
+<structure interface="nabu.misc.git.manage.builds.configure:api" name="pipeline">
     <structure name="input"/>
     <structure name="output"/>
+    <structure definition="be.nabu.eai.module.git.GitInformation" name="configuration"/>
 </structure>
