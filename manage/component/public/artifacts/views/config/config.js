@@ -110,6 +110,22 @@ Vue.view("environment-config", {
 			try {
 				var parent = this;
 				var runItInScope = function() {
+					var contains = function(list, value) {
+						if (!list || !list.length) {
+							return false;
+						}
+						if (!(list instanceof Array)) {
+							// we assume a string
+							if (list.split) {
+								list = list.split(/[\s]*,[\s]*/);
+							}
+							// not an array...
+							else {
+								return false;
+							}
+						}
+						return list.filter(function(x) { return x == value }).length > 0;
+					};
 					// we want to expand the parameters into a temporary "this" scope so they can be accessed by name
 					if (parent.selected && parent.selected.parameters) {
 						var self = this;
