@@ -2,28 +2,38 @@
 
 # Versioning and Building
 
-One of the main goals of Nabu is "ease of use". While this module is powered by git, it by no means exposes the full power of git to the developer. Instead, it enforces its own workflow which still leaves some room for customization, but primarily focuses on making it easy to version your project and prepare your releases.
+One of the main goals of Nabu is "ease of use". While this module is powered by git, it does not the full power of git to the developer. Instead, it enforces its own workflow which still leaves some room for customization, but primarily focuses on making it easy to version your project and prepare your releases.
 
 ## Example
 
 Before we dig into the details, which may sound overwhelming, let's focus on the steps you, as developer, need to do in a typical project which assumes we are building the project on the same server we are developing it on.
 
+If you are starting a new project from scratch, these are the steps:
+
 - you **create a project** as you normally would and start building your application
-- you perform "right click > **commit**" along the way as you build. You can optionally add some information that explains the commit
-- once you are content with the first version of your project, you right click the project and hit "**release**"
-- you head on over to your management application, you hit "start build" to **initiate local building** of the project
+- you perform "right click > **commit**" along the way as you build, this can be to parts of the project or the whole project
+- once you're happy with the first version of your project, you right click the project and hit "**release**"
+- you head on over to your build server, clone the project and hit **build**
 - you **add the environment(s)** you want to deploy to
-- you **change any environment-specific parameters** in your application
+- you **change any environment-specific parameters** in your project
 - hit save and your environment-specific release is now **ready for deployment**
 
 Of course, you continue working on your project, so:
 
 - you again **commit** as you see fit
 - once you are ready for a second **release** to another environment, right click the project and release it
-- if you did not change any environment-specific parameters, within 10 minutes your new deployable artifact will be **ready**. You can speed this up if you are feeling restless.
-	- if you did change environment specific parameters, head out to the web interface again and change them, once you save your new build will be available
+- the build server already knows about your project so will automatically pull in any changes and create a new build
+	- if needed you can further tweak the environment-specific parameters 
 
 Ok, now that you have an overview of the day-to-day steps, let's get into the nitty gritty details of the system. While it is not entirely necessary to understand this in full, having an overview of the steps never hurts.
+
+## Overview
+
+To help you visualize the descriptive text below, here's an overview of what the git repo(s) look like:
+
+[:.resources/diagram.png]
+
+The development and building can be done on the same server or different servers. The "origin" and "build" remotes on the build server can be one git repo or multiple. For security reasons you may want to put your build environment in a more restricted git repo.
 
 ## Development
 
@@ -33,21 +43,20 @@ You can choose the branch that the development server is on:
 - it can be a standard "develop" branch
 - it can work directly onto the master branch
 - you can work on a hotfix branch
-- you can even use feature branches with multiple servers if that is needed
+- you can even use feature branches if needed, but that requires a slightly more complex setup
 
 In Nabu Developer you can right click any resource entry inside a project and "commit" pending changes. They will be committed to whichever branch that server is running on. Note that a commit will also run all the deployment actions that are contained within the entry you selected (or a child thereof).
 
 You can also right click a project and "release" it. This will run through a commit cycle to make sure all the changes are committed. It will search all tags with a format of "v<number>" and tag that last commit with a version number which is 1 higher than whatever the highest was up to that point.
 
-For example the first time you release, a tag will appear called "v1", the next time "v2" etc. There is no differentation between major, minor or patch versions, only an incremental number.
+So your main branch will have a bunch of commits and every so often (when you "release") a new tag will apear with an incremental version number, e.g. "v1", "v2",... There is no differentation between major, minor or patch versions, only an incremental number.
 
 ### Remote
 
 If you register a remote called "origin" on the repository, the server will automatically push the changes from the current branch to the equivalent branch in the origin, both on commit and release.
 
 If you want to use another name than "origin", you can change the system property ``git.remote``. Note however that this is applicable to all projects on the server.
-
-Note that if you require credentials to push, you need to configure the project using ``nabu.misc.git.Services.configure``. The credentials can also be configured in a management application that has the manage component that is distributed with this package.
+If you require credentials to push, you need to configure the project using ``nabu.misc.git.Services.configure``. The credentials can also be configured in a management application that has the manage component that is distributed with this package.
 
 ## Building
 
@@ -75,6 +84,8 @@ Once an environment is added, it will be added as a branch to the patch version 
 
 If however, the qlty enviromnent was already added in r1.0-qlty and you had already configured some environment specific properties, they will automatically be applied in this branch as well. 
 
+#### Merge
+
 This happens through a merge process. Each artifact can have a merge script linked to it which will dictate how they are merged. Each artifact type with relevant environment properties has a standard merge script available. This means, unless you want to do something special, you don't have to worry about the scripts and everything will work automatically.
 
 **Advanced users**: the scripting allows for very complex merge logic if needed though you will have to write your own Glue scripts to make it happen. These can be configured directly in the node (edit > properties > merge script) or alternatively you can host them on an endpoint that the build server can reach and simply put the link to that endpoint in the same properties location. Note that when you use our shared cloud-building service, there will be limits placed on the script capabilities.
@@ -86,8 +97,6 @@ Once everything is merged into your environment, the changes (if any) are commit
 ### Automatic Building
 
 The server will check for updates to build every 10 minutes. There is a "build all" button in the accompanying web application that allows you to check for updates faster or you can specifically build a certain project.
-
-**Advanced users:** Note that build servers _can_ be clustered, however building is managed with cluster-level locking to make sure only one server is actually building. Internally each server will use locking to make sure only one service instance is modifying the git repository at a time.
 
 ### Encryption
 
@@ -127,9 +136,13 @@ Some properties are only relevant if another property has a certain value, for e
 
 [:.resources/parameters2.png]
 
+### Build Folder
+
+The folder that will be used to store your builds can be configured using ``git.build``.
+
 ### Finalizing
 
 Once you are happy with your environment properties, you can hit "Build" in the top right corner. That will save your changes and merge them into the current environment branch.
-You can then proceed to manually download the zip, or the next step in your build pipeline (e.g. automated testing) can start.
+You can then proceed to manually download the zip or you can switch to the accompanying module that allows you to combine projects into server images that are ready for automated rollout or testing.
 
 Note that unless environment specific changes are required, this process can run fully automatically without human intervention, allowing you to integrate it into your continuous integration pipeline.
