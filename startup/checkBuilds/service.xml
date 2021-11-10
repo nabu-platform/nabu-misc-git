@@ -85,28 +85,80 @@
 						disabled="false"
 						id="cd89f618-f46e-409c-95b4-1c1b490ecd93"
 						variable="build">
-					<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
 							disabled="false"
-							id="784c470d-eb3b-4231-a489-c2bcb3d3462e">
-						<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+							id="7fea261e-5a15-48a0-8e47-4302db902166">
+						<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 								disabled="false"
-								id="e541982a-af04-4c83-a2f2-9d8d876c7d37"
-								serviceId="nabu.misc.git.Services.build"
-								resultName="resultc9644ef666504f6e8b227cb33f2c31d7"
-								temporaryMapping="true"
-								x="84"
-								y="68"
-								invocationOrder="0"
-								asynchronous="false"
-								recache="false">
-							<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+								id="784c470d-eb3b-4231-a489-c2bcb3d3462e">
+							<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 									disabled="false"
-									id="d3e516fb-dd33-453b-bc7a-2aabbff45dd2"
-									mask="false"
-									optional="false"
-									fixedValue="false">
-								<from>build/name</from>
-								<to>name</to>
+									id="e541982a-af04-4c83-a2f2-9d8d876c7d37"
+									serviceId="nabu.misc.git.Services.build"
+									resultName="resultc9644ef666504f6e8b227cb33f2c31d7"
+									temporaryMapping="true"
+									x="84"
+									y="68"
+									invocationOrder="0"
+									asynchronous="false"
+									recache="false">
+								<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+										disabled="false"
+										id="d3e516fb-dd33-453b-bc7a-2aabbff45dd2"
+										mask="false"
+										optional="false"
+										fixedValue="false">
+									<from>build/name</from>
+									<to>name</to>
+								</steps>
+							</steps>
+						</steps>
+						<steps xsi:type="be.nabu.libs.services.vm.step.Catch"
+								disabled="false"
+								id="bd3f1e88-9a84-47cb-b310-095122b246b6"
+								variable="exception">
+							<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+									disabled="false"
+									id="05c4cb91-83f3-4aa9-966a-afaa54f1463d">
+								<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+										disabled="false"
+										id="af864581-d601-4d1a-a123-bc78fee63502"
+										serviceId="nabu.utils.Server.log"
+										resultName="resultc088648787e340089412cbd8715f4e86"
+										temporaryMapping="true"
+										x="183"
+										y="80"
+										invocationOrder="0"
+										asynchronous="false"
+										recache="false">
+									<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+											disabled="false"
+											id="e151876c-7bf0-4723-87cf-71a61a015100"
+											mask="false"
+											optional="false"
+											fixedValue="true">
+										<from>="Could not build project: " + build/name</from>
+										<to>message</to>
+									</steps>
+									<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+											disabled="false"
+											id="ed1a5374-984a-43bb-a41f-ef50342d494f"
+											mask="false"
+											optional="false"
+											fixedValue="false">
+										<from>exception</from>
+										<to>exception</to>
+									</steps>
+									<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+											disabled="false"
+											id="f54477b7-12d8-4e7f-8aba-b60118223df3"
+											mask="false"
+											optional="false"
+											fixedValue="true">
+										<from>ERROR</from>
+										<to>level</to>
+									</steps>
+								</steps>
 							</steps>
 						</steps>
 					</steps>

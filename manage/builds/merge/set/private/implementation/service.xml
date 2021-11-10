@@ -3,6 +3,40 @@
 		id="61eb3930-7d31-4c1f-b05b-0d6ebad01253">
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
+			id="09caba12-6a84-4627-9e19-0db18205800a">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="309b548d-ebb4-4b07-9704-a00f89650130"
+				serviceId="nabu.utils.Lock.lock"
+				resultName="resulte089ba04bc884b6fa984c3b018401870"
+				temporaryMapping="true"
+				x="203"
+				y="144"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="c1c112e8-c0e2-407e-b94d-ba106c3b4a17"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>git-build</from>
+				<to>name</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="be015907-f465-4536-b7fc-3d4f2c856d11"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>false</from>
+				<to>local</to>
+			</steps>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
 			id="0c0b0be7-f155-45a9-bdff-55ddbce73c36">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
@@ -41,6 +75,44 @@
 					fixedValue="false">
 				<from>input/content</from>
 				<to>result</to>
+			</steps>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Finally"
+			disabled="false"
+			id="bcc9a354-8501-4343-a691-37eb437bcde0">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="c28cc03c-06f5-4904-971b-c5ea050bcd06">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="9c21e05c-77ba-443f-8eb9-71be06069edd"
+					serviceId="nabu.utils.Lock.unlock"
+					resultName="resultd7d59fc540544bda9d4479ddbc9d6511"
+					temporaryMapping="true"
+					x="81"
+					y="131"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="526cfcef-7e84-486b-b40e-691c0292cfad"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>git-build</from>
+					<to>name</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="9ea852e5-4706-4819-951b-6c2b71cc49ca"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>false</from>
+					<to>local</to>
+				</steps>
 			</steps>
 		</steps>
 	</steps>

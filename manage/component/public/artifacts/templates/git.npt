@@ -48,6 +48,18 @@
 												"useSelection": false
 											},
 											{
+												"name": "cloneProject",
+												"icon": null,
+												"class": "secondary",
+												"label": "Clone Project",
+												"condition": null,
+												"refresh": false,
+												"global": true,
+												"close": false,
+												"type": "button",
+												"useSelection": false
+											},
+											{
 												"name": "buildAll",
 												"icon": null,
 												"class": "primary",
@@ -745,7 +757,7 @@
 					"result": {}
 				}
 			],
-			"class": null,
+			"class": "full-width",
 			"customId": null,
 			"instances": {},
 			"condition": null,
@@ -1140,10 +1152,188 @@
 			"on": null,
 			"collapsed": false,
 			"name": null
+		},
+		{
+			"id": 19,
+			"cells": [
+				{
+					"id": 20,
+					"rows": [],
+					"alias": "page-form",
+					"bindings": {
+						"body.name": null,
+						"body.endpoint": null,
+						"body.username": null,
+						"body.password": null,
+						"body.description": null
+					},
+					"name": null,
+					"state": {
+						"title": "Clone Project",
+						"immediate": false,
+						"pages": [
+							{
+								"name": "Form Fields",
+								"title": null,
+								"fields": [
+									{
+										"arbitrary": false,
+										"name": "body.name",
+										"label": "%{Name}",
+										"description": null,
+										"type": "text",
+										"enumerations": [],
+										"value": null,
+										"group": null,
+										"joinGroup": false,
+										"textType": null,
+										"bindings": {},
+										"validationSuccessEvent": {
+											"eventFields": [],
+											"name": null
+										},
+										"after": "The exact name of the project"
+									},
+									{
+										"arbitrary": false,
+										"name": "body.endpoint",
+										"label": "%{Endpoint}",
+										"description": null,
+										"type": "text",
+										"enumerations": [],
+										"value": null,
+										"group": null,
+										"joinGroup": false,
+										"textType": null,
+										"bindings": {},
+										"validationSuccessEvent": {
+											"eventFields": [],
+											"name": null
+										},
+										"after": "The HTTP url of the repo we are cloning"
+									},
+									{
+										"arbitrary": false,
+										"name": "body.username",
+										"label": "%{Username}",
+										"description": null,
+										"type": "text",
+										"enumerations": [],
+										"value": null,
+										"group": null,
+										"joinGroup": false,
+										"textType": null,
+										"bindings": {},
+										"validationSuccessEvent": {
+											"eventFields": [],
+											"name": null
+										}
+									},
+									{
+										"arbitrary": false,
+										"name": "body.password",
+										"label": "%{Password}",
+										"description": null,
+										"type": "password",
+										"enumerations": [],
+										"value": null,
+										"group": null,
+										"joinGroup": false,
+										"validationSuccessEvent": {
+											"eventFields": [],
+											"name": null
+										}
+									},
+									{
+										"arbitrary": false,
+										"name": "body.description",
+										"label": "%{Description}",
+										"description": null,
+										"type": "text",
+										"enumerations": [],
+										"value": null,
+										"group": null,
+										"joinGroup": false,
+										"textType": "area",
+										"bindings": {},
+										"validationSuccessEvent": {
+											"eventFields": [],
+											"name": null
+										}
+									}
+								]
+							}
+						],
+						"class": null,
+						"ok": "Clone",
+						"edit": "Edit",
+						"next": "Next",
+						"cancel": "Cancel",
+						"event": "clonedProject",
+						"synchronize": false,
+						"operation": "nabu.misc.build.manage.rest.build.clone",
+						"mode": "component"
+					},
+					"target": "prompt",
+					"on": "cloneProject",
+					"class": null,
+					"customId": null,
+					"width": 1,
+					"height": null,
+					"instances": {},
+					"condition": null,
+					"devices": [],
+					"clickEvent": {
+						"eventFields": [],
+						"name": null
+					},
+					"$$initialize": null,
+					"cellState": {
+						"form": {
+							"properties": {
+								"body": {
+									"type": "object",
+									"required": [
+										"name",
+										"endpoint"
+									],
+									"properties": {
+										"name": {
+											"type": "string"
+										},
+										"endpoint": {
+											"type": "string",
+											"format": "uri"
+										},
+										"username": {
+											"type": "string"
+										},
+										"password": {
+											"type": "string"
+										},
+										"description": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			],
+			"class": null,
+			"customId": null,
+			"instances": {},
+			"condition": null,
+			"direction": null,
+			"align": null,
+			"on": null,
+			"collapsed": false,
+			"name": null
 		}
 	],
 	"path": "/deployment/builds",
-	"counter": 19,
+	"counter": 21,
 	"variables": [],
 	"query": [],
 	"actions": [
@@ -1331,7 +1521,8 @@
 				"name": null
 			},
 			"refreshOn": [
-				"builtProject"
+				"builtProject",
+				"clonedProject"
 			]
 		}
 	],
