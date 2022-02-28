@@ -102,6 +102,20 @@ The server will check for updates to build every 10 minutes. There is a "build a
 
 Some parameters are automatically encrypted before they are stored on the filesystem (e.g. database passwords). The build process will also keep these passwords encrypted in the respective branches. They are only decrypted in memory when they are sent to the management application so they can be interpreted and changed by the user, they are encrypted again before the new values are stored.
 
+### Hotfixing
+
+As mentioned, the build server will make a branch "r2" based on the tag "v2".
+From here it will create (initially) a "r2.0" branch.
+The build server will also explicitly push the branch "r2" back to the origin.
+
+If you want to hotfix a particular release, on the development server you can pull the respective branch (e.g. git pull origin r2) and switch to it (git checkout r2).
+The nabu server needs to be restarted to see the new (or rather old) version of that is currently checked out in the hotfix branch. You restart your developer (if it was still open) and you can make any changes to the r2 release as you see fit.
+
+Once done, commit everything to the r2 branch and push it upstream to origin.
+At that point, if you are done hotfixing, you can switch back your development server to the master branch, restart the server and your developer and continue developing.
+
+The build server will periodically check for updates on release branches, including r2 in our example. It will notice a commit that is beyond the last patch branch (r2.0) and create a new patch branch (r2.1).
+
 ## Web Interface
 
 As mentioned a few times in the above, a management application is distributed along with the git logic, this allows you to easily manipulate the environment parameters.
