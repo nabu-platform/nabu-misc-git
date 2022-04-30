@@ -1,0 +1,3 @@
+<structure name="workspaceList">
+    <structure definition="nabu.misc.git.manage.workspace.workspace" maxOccurs="unbounded" minOccurs="0" name="workspaces"/>
+</structure>

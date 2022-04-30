@@ -1,9 +1,11 @@
 <sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		disabled="false"
-		id="c89cd7bf-8156-4e74-b005-52f87398d2ab">
+		id="c89cd7bf-8156-4e74-b005-52f87398d2ab"
+		lineNumber="1">
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="9135c870-02d4-402e-9b35-2695ebbaacfe">
+			id="9135c870-02d4-402e-9b35-2695ebbaacfe"
+			lineNumber="2">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="7ac0f5ac-1554-4a37-802b-d2125c6d74c4"
@@ -32,6 +34,15 @@
 					fixedValue="false">
 				<from>input/path/branch</from>
 				<to>branch</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="1dfe1106-d2a0-4eca-b127-483353a33338"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/workspace</from>
+				<to>workspace</to>
 			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Link"

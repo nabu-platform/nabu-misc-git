@@ -1,9 +1,11 @@
 <sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		disabled="false"
-		id="dddcc965-7fb2-469c-b95e-b6f626de2c18">
+		id="dddcc965-7fb2-469c-b95e-b6f626de2c18"
+		lineNumber="1">
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="3e128d1b-fcc4-404e-bb61-462fbdbb8796">
+			id="3e128d1b-fcc4-404e-bb61-462fbdbb8796"
+			lineNumber="2">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="479653c3-34db-43c2-a5b3-e1e8ecfb8b2b"
@@ -41,6 +43,15 @@
 					fixedValue="false">
 				<from>input/content/copyFrom</from>
 				<to>copyEnvironment</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="6f6ac6f8-2d43-41dc-bce1-bb29a2dbee13"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/workspace</from>
+				<to>workspace</to>
 			</steps>
 		</steps>
 	</steps>

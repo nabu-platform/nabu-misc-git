@@ -40,6 +40,7 @@
 							:after="parameter.description"
 							:info="values(parameter)"
 							:placeholder="parameter.defaultValue"/>
+						<button v-if="isSimpleArray(parameter)" @click="addSimpleParameter(parameter)">Add value to list</button>
 						<div class="buttons">
 							<button class="reset-button inline" @click="parameter.current = parameter.previous" title="Reset to previous"><span class="fa fa-undo"></span></button>
 							<button class="reset-button inline" @click="parameter.current = parameter.raw" title="Reset to raw"><span class="fa fa-times"></span></button>

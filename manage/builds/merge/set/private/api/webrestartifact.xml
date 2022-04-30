@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <restInterface>
     <method>POST</method>
-    <path>/build/{project}/merge/{branch}</path>
+    <path>/build/{workspace}/{project}/merge/{branch}</path>
     <role>$user</role>
     <input>nabu.misc.git.types.MergeResult</input>
     <lenient>true</lenient>

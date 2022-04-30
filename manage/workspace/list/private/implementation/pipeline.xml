@@ -1,0 +1,5 @@
+<structure interface="nabu.misc.git.manage.workspace.list:api" name="pipeline">
+    <structure name="input"/>
+    <structure name="output"/>
+    <field maxOccurs="unbounded" minOccurs="0" name="workspaces" type="java.lang.String"/>
+</structure>

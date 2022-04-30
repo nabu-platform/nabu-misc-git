@@ -1,9 +1,11 @@
 <sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		disabled="false"
-		id="61eb3930-7d31-4c1f-b05b-0d6ebad01253">
+		id="61eb3930-7d31-4c1f-b05b-0d6ebad01253"
+		lineNumber="1">
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="09caba12-6a84-4627-9e19-0db18205800a">
+			id="09caba12-6a84-4627-9e19-0db18205800a"
+			lineNumber="2">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="309b548d-ebb4-4b07-9704-a00f89650130"
@@ -37,7 +39,8 @@
 	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="0c0b0be7-f155-45a9-bdff-55ddbce73c36">
+			id="0c0b0be7-f155-45a9-bdff-55ddbce73c36"
+			lineNumber="3">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="30f44441-5db0-4d64-8659-ed987cce095e"
@@ -76,14 +79,25 @@
 				<from>input/content</from>
 				<to>result</to>
 			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="74285ea7-e479-47ca-b89c-8582ab5c1ca1"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/workspace</from>
+				<to>workspace</to>
+			</steps>
 		</steps>
 	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Finally"
 			disabled="false"
-			id="bcc9a354-8501-4343-a691-37eb437bcde0">
+			id="bcc9a354-8501-4343-a691-37eb437bcde0"
+			lineNumber="4">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 				disabled="false"
-				id="c28cc03c-06f5-4904-971b-c5ea050bcd06">
+				id="c28cc03c-06f5-4904-971b-c5ea050bcd06"
+				lineNumber="5">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 					disabled="false"
 					id="9c21e05c-77ba-443f-8eb9-71be06069edd"

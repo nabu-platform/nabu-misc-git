@@ -11,5 +11,7 @@
     <webFragments>nabu.misc.git.manage.builds.environment.add</webFragments>
     <webFragments>nabu.misc.git.manage.builds.download</webFragments>
     <webFragments>nabu.misc.git.manage.release.create</webFragments>
+    <webFragments>nabu.misc.git.manage.workspace.create</webFragments>
+    <webFragments>nabu.misc.git.manage.workspace.list</webFragments>
     <audience>MANAGER</audience>
 </webModule>

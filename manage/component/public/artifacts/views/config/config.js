@@ -1,5 +1,8 @@
 Vue.view("environment-config", {
 	props: {
+		workspace: {
+			type: String
+		},
 		project: {
 			type: String
 		},
@@ -147,6 +150,7 @@ Vue.view("environment-config", {
 			var self = this;
 			return this.$services.swagger.execute("nabu.misc.git.manage.builds.merge.get", {
 				branch: this.branch,
+				workspace: this.workspace,
 				project: this.project
 			}).then(function(result) {
 				Vue.set(self, "merge", result);
@@ -157,6 +161,7 @@ Vue.view("environment-config", {
 			if (self.merge) {
 				var promise = this.$services.swagger.execute("nabu.misc.git.manage.builds.merge.set", {
 					branch: this.branch,
+					workspace: this.workspace,
 					project: this.project,
 					body: self.merge
 				});
@@ -177,8 +182,14 @@ Vue.view("environment-config", {
 			if (parameter.title) {
 				return parameter.title;
 			}
-			var pretty = parameter.name.replace(/([A-Z]+)/g, " $1");
-			return pretty.substring(0, 1).toUpperCase() + pretty.substring(1);
+			var pretty = parameter.name
+				.replace(/\//g, " ")
+				.replace(/([A-Z]+)/g, " $1");
+			var parts = pretty.split(" ");
+			for (var i = 0; i < parts.length; i++) {
+				parts[i] = parts[i].substring(0, 1).toUpperCase() + parts[i].substring(1);
+			}
+			return parts.join(" ");
 		},
 		values: function(parameter) {
 			var values = ""
@@ -189,6 +200,43 @@ Vue.view("environment-config", {
 				values += "<div><span class='value-key'>Previous environment value:</span> " + parameter.previous + "</div>";
 			}
 			return values;
+		},
+		addSimpleParameter: function(parameter) {
+			var clone = JSON.parse(JSON.stringify(parameter));
+			clone.raw = null;
+			clone.current = null;
+			var previousIndex = parseInt(parameter.name.replace(/.*\[([0-9]+)\]$/, "$1"));
+			clone.name = clone.name.replace(/(.*)\[[0-9]+\]$/, "$1[" + (previousIndex + 1) + "]");
+			// we must have a selected and it must have parameters for this method to be even called, no need to check
+			var insertIndex = this.selected.parameters.indexOf(parameter) + 1;
+			if (insertIndex >= this.selected.parameters.length) {
+				this.selected.parameters.push(clone);
+			}
+			else {
+				this.selected.parameters.splice(insertIndex, 0, clone);
+			}
+		},
+		isSimpleArray: function(parameter) {
+			var isArray = parameter.name.substring(parameter.name.length - 1) == "]";
+			var lastMatch = null;
+			// it must be the last in the array
+			if (isArray) {
+				var maxIndex = -1;
+				var toMatch = parameter.name.replace(/(.*)\[[0-9]+\]$/, "$1");
+				this.selected.parameters.forEach(function(x) {
+					var potential = x.name.replace(/(.*)\[[0-9]+\]$/, "$1");
+					console.log("checking potential", potential);
+					if (potential == toMatch) {
+						var index = parseInt(parameter.name.replace(/.*\[([0-9]+)\]$/, "$1"));
+						console.log("found match", index);
+						if (index >= maxIndex) {
+							maxIndex = index;
+							lastMatch = x.name;
+						}
+					}
+				});
+			}
+			return isArray && lastMatch == parameter.name;
 		}
 	}
 });

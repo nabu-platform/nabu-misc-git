@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <restInterface>
     <method>POST</method>
-    <path>/build/{project}</path>
+    <path>/build/{workspace}/{project}</path>
     <role>$user</role>
     <lenient>true</lenient>
     <webApplicationId>false</webApplicationId>

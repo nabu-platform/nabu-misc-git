@@ -1,0 +1,31 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="70cee49a-5629-4d24-9608-c702d6f17780"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="8dcc3f32-4cb3-466d-a0ff-9d5a490a8561"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="92da4eae-783b-4ea1-b0d4-36f7ce5e04f1"
+				serviceId="nabu.misc.git.Services.createWorkspace"
+				resultName="result40a538f866144bcaaede0306b44afea8"
+				temporaryMapping="true"
+				x="178"
+				y="67"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="f6a11db9-79d3-4df4-b54c-cff8673ed500"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/content/name</from>
+				<to>name</to>
+			</steps>
+		</steps>
+	</steps>
+</sequence>

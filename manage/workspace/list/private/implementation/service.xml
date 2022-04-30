@@ -1,0 +1,98 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="d9868e00-8a30-4d97-b7f1-e9d972dae2d9"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="8ceb3673-7647-4aee-a7e8-a53096b100a3"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="b8685c84-029a-495a-bd03-1999e2740a4e"
+				serviceId="nabu.misc.git.Services.workspaces"
+				resultName="resultce43556299df41e5be31035150fd186f"
+				temporaryMapping="true"
+				x="76"
+				y="41"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="26024abe-d3f2-42d1-83f9-961b404e692a"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>resultce43556299df41e5be31035150fd186f/workspaces</from>
+			<to>workspaces</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="11e883ab-ffa1-4d9b-9fe1-a53a189d5cf5"
+			label="&quot;default&quot; !# workspaces"
+			lineNumber="3">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="4bed5d5a-c7aa-4be8-a29b-4b68b14e49a1"
+				serviceId="nabu.utils.List.add"
+				resultName="resultad8b6ea42e814593ba6416a1dfcd7074"
+				temporaryMapping="true"
+				x="89"
+				y="83"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="12cbaff2-f7c7-4c75-b348-c3b75164ac8c"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>workspaces</from>
+				<to>list</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="df81ec85-fadb-4ae3-906e-72e1ccbfcaab"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>default</from>
+				<to>object</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="ca43fd91-1d8b-422c-9d41-07227927c922"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>resultad8b6ea42e814593ba6416a1dfcd7074/list</from>
+			<to>workspaces</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.For"
+			disabled="false"
+			id="31400b87-8489-4cdf-bf98-8dcffaab5b8d"
+			lineNumber="4"
+			variable="workspace"
+			into="output/content/workspaces">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="88a10d0a-5ea8-47fc-ad6d-f88bbf296dff"
+				lineNumber="5">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="4e9823b6-c11b-4642-82f3-c817c4dc5813"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>workspace</from>
+				<to>output/content/workspaces[0]/name</to>
+			</steps>
+		</steps>
+		<query>workspaces</query>
+	</steps>
+</sequence>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.web.component.WebComponentManager" created="2021-10-22T13:07:13.991+02:00" lastModified="2021-10-23T16:25:03.870+02:00" leaf="true" version="13">
+<node artifactManager="be.nabu.eai.module.web.component.WebComponentManager" created="2021-10-22T13:07:13.991+02:00" lastModified="2022-04-29T16:27:07.910+02:00" leaf="true" version="14">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
     <properties/>
@@ -13,4 +13,6 @@
     <references>nabu.misc.git.manage.builds.environment.add</references>
     <references>nabu.misc.git.manage.builds.download</references>
     <references>nabu.misc.git.manage.release.create</references>
+    <references>nabu.misc.git.manage.workspace.create</references>
+    <references>nabu.misc.git.manage.workspace.list</references>
 </node>

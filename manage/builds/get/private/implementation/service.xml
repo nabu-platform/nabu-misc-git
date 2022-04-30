@@ -1,9 +1,11 @@
 <sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		disabled="false"
-		id="4da2a43e-f64c-4c4c-bc77-f319ad3f77e3">
+		id="4da2a43e-f64c-4c4c-bc77-f319ad3f77e3"
+		lineNumber="1">
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="f992b4ec-9609-4dc3-969f-691faf26763e">
+			id="f992b4ec-9609-4dc3-969f-691faf26763e"
+			lineNumber="2">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="1dc70a22-167d-4341-8019-046f293fdb3e"
@@ -24,6 +26,15 @@
 				<from>input/path/project</from>
 				<to>name</to>
 			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="8fca7806-651f-4904-bd45-a64fd6f0cbfd"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/workspace</from>
+				<to>workspace</to>
+			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 				disabled="false"
@@ -38,7 +49,8 @@
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			comment="To avoid down scrolling, we reverse"
 			disabled="false"
-			id="7e96e6eb-ac1b-4267-bc8d-e32af63be9a8">
+			id="7e96e6eb-ac1b-4267-bc8d-e32af63be9a8"
+			lineNumber="3">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="1c24ec46-9977-4d07-bef6-6c40aa1cc9be"

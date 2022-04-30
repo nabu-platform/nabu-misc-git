@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <restInterface>
     <method>GET</method>
-    <path>/build/{project}/archive/{branch}</path>
+    <path>/build/{workspace}/{project}/archive/{branch}</path>
     <role>$user</role>
     <outputAsStream>true</outputAsStream>
     <lenient>true</lenient>

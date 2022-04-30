@@ -1,4 +1,5 @@
 <structure name="path">
     <field name="project" type="java.lang.String"/>
     <field name="branch" type="java.lang.String"/>
+    <field name="workspace" type="java.lang.String"/>
 </structure>

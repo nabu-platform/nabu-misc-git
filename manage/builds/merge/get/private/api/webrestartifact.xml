@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <restInterface>
     <method>GET</method>
-    <path>/build/{project}/merge/{branch}</path>
+    <path>/build/{workspace}/{project}/merge/{branch}</path>
     <role>$user</role>
     <output>nabu.misc.git.types.MergeResult</output>
     <lenient>true</lenient>

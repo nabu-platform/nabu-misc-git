@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <restInterface>
     <method>GET</method>
-    <path>/build/{project}</path>
+    <path>/build/{workspace}/{project}</path>
     <role>$user</role>
     <output>nabu.misc.git.types.GitBuild</output>
     <lenient>true</lenient>
