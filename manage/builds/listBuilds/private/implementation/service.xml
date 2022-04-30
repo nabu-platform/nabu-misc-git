@@ -1,0 +1,140 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="abe97856-523f-429b-940b-b7e41c25764e"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="6818871e-3788-4f12-8f4b-782cfac4ae16"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="6e4a7fff-dcf8-4651-a800-04228cf1b9d0"
+				serviceId="nabu.misc.git.Services.builds"
+				resultName="result65dc7212f4e04a4190ce36876df1ba2e"
+				temporaryMapping="true"
+				x="74"
+				y="117"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="5fa314c9-2060-4642-a1be-0d3745787d6e"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result65dc7212f4e04a4190ce36876df1ba2e/builds[workspace == /input/path/workspace]</from>
+			<to>builds</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="e9de9128-fea2-4c47-a0ec-1199c080a5f7"
+				serviceId="nabu.misc.git.utils.project.getAllBuilding"
+				resultName="result8c7f3d72f2634005934b9c3eb42ed6d8"
+				temporaryMapping="true"
+				x="201"
+				y="218"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="57164c3d-bf0d-4aee-98e4-0ae2be2178bf"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result8c7f3d72f2634005934b9c3eb42ed6d8/building</from>
+			<to>building</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.For"
+			disabled="false"
+			id="408863a2-5d72-48d0-8a9c-ba8c2a3859cf"
+			lineNumber="3"
+			variable="build"
+			into="output/content/projects">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="c926b17d-05e8-40e1-883f-71488fe6a480"
+				lineNumber="4">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="0f24e795-b425-4fd4-8f48-bb15b12da95c"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>build/description</from>
+				<to>output/content/projects[0]/description</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="6c26ff2f-ad87-4fd7-b563-6153a2a07eb7"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>build/name</from>
+				<to>output/content/projects[0]/name</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="e132e815-913c-47c8-b285-a8b72c0e6012"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>build/password</from>
+				<to>output/content/projects[0]/password</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="706f94be-0d3f-46f6-ac0a-ca79500a91d5"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>build/username</from>
+				<to>output/content/projects[0]/username</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="e394bd48-b55c-4b00-9768-12f84061f1f9"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>build/workspace</from>
+				<to>output/content/projects[0]/workspace</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="b34b8b47-aa9a-41e8-a7d9-4ff71e0c1f06"
+					serviceId="nabu.utils.Object.first"
+					resultName="result99812fe6ea6a43a9b63da3a241ecae0d"
+					temporaryMapping="true"
+					x="218"
+					y="272"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="fa1d3a82-60e1-4ac3-9d2a-9cf9616647ea"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>building[workspace == /build/workspace &amp;&amp; project == /build/name]/created</from>
+					<to>options</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="26335dbc-cc04-4371-a044-8844098a66cc"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>result99812fe6ea6a43a9b63da3a241ecae0d/first</from>
+				<to>output/content/projects[0]/buildingSince</to>
+			</steps>
+		</steps>
+		<query>builds</query>
+	</steps>
+</sequence>

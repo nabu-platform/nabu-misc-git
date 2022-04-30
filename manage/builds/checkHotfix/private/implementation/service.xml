@@ -1,0 +1,49 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="b63c42eb-a122-4d04-826d-17a8cefdce2c"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="02c893b3-eb69-4223-a34b-c65fe2b2513c"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="99f60878-141a-4e8c-ac08-1ae63a66b152"
+				serviceId="nabu.misc.git.Services.hotfix"
+				resultName="result0164298ca94548cc92a973cb0d7b390d"
+				temporaryMapping="true"
+				x="48"
+				y="67"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="c1d7798c-83d8-4181-8ed9-35c1a76a47c1"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/workspace</from>
+				<to>workspace</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="615a1306-36c5-44a9-8fce-a3ebaf261336"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/version</from>
+				<to>version</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="94a28bc0-ba37-4cc6-bae6-a91318b15b8e"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/project</from>
+				<to>name</to>
+			</steps>
+		</steps>
+	</steps>
+</sequence>

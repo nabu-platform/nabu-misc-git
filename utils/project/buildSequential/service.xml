@@ -1,0 +1,92 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="8ddd7b66-f73d-46b0-aa83-6c4daf1c6143"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="bca7f16d-b9e2-4c10-8ffa-6f20f7b2e5c4"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="a691201d-2a3b-4e86-9487-c72e8020069c"
+				serviceId="nabu.misc.git.utils.project.isBuilding"
+				resultName="result60ff1ac33c144eb9a97b9d11f1deb5bf"
+				temporaryMapping="true"
+				x="117"
+				y="217"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="049f7f9c-bb62-4d9e-a6da-df6d0ac2d9f3"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/workspace</from>
+				<to>workspace</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="c5dfac1f-4148-4de9-b5d5-df3f73894579"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/project</from>
+				<to>project</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="a8e61e4c-30b3-4ca4-89a7-d7c21d37cabe"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result60ff1ac33c144eb9a97b9d11f1deb5bf/isBuilding</from>
+			<to>isBuilding</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="248dd23d-4f03-45f3-aab1-8661ee802182"
+			label="!isBuilding"
+			lineNumber="3">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="3c21f4da-74e6-48c4-b7e9-afef30d613ab"
+				serviceId="nabu.misc.git.utils.project.build"
+				resultName="result93935af080a446b7835ce1dc7775ec95"
+				temporaryMapping="true"
+				x="171"
+				y="77"
+				invocationOrder="0"
+				target="nabu.frameworks.tasks.providers.executor"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="4d1615fd-9b6a-4d40-90c9-765a80715280"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/workspace</from>
+				<to>workspace</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="e1ce599d-e60e-496b-bd48-04c258a0857c"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/project</from>
+				<to>project</to>
+			</steps>
+			<targetProperties
+					collectionIndex="groupId">=input/workspace</targetProperties>
+			<targetProperties
+					collectionIndex="contextId">=input/project</targetProperties>
+			<targetProperties
+					collectionIndex="queue">="deployment-" + input/workspace + "-" + input/project</targetProperties>
+		</steps>
+	</steps>
+</sequence>

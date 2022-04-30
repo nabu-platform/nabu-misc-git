@@ -1,0 +1,3 @@
+<structure name="isBuildingOutput">
+    <field name="building" type="java.lang.Boolean"/>
+</structure>

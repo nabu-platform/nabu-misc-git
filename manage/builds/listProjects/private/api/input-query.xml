@@ -1,0 +1,5 @@
+<structure name="query">
+    <field minOccurs="0" name="q" type="java.lang.String"/>
+    <field maxOccurs="unbounded" minOccurs="0" name="not" type="java.lang.String"/>
+    <field minOccurs="0" name="workspace" type="java.lang.String"/>
+</structure>

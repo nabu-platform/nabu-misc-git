@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2022-04-30T15:12:35.965+02:00" lastModified="2022-04-30T15:13:17.452+02:00" leaf="true" version="5">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <properties/>
+    <references>nabu.misc.git.utils.project.isBuilding</references>
+    <references>java.lang.String</references>
+    <references>nabu.misc.git.manage.builds.isBuildingOutput</references>
+</node>

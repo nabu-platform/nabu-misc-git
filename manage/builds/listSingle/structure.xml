@@ -1,0 +1,3 @@
+<structure name="listSingle" superType="be.nabu.eai.module.git.GitInformation">
+    <field minOccurs="0" name="buildingSince" type="java.util.Date"/>
+</structure>

@@ -1,0 +1,5 @@
+<structure name="path">
+    <field name="workspace" type="java.lang.String"/>
+    <field name="project" type="java.lang.String"/>
+    <field name="version" type="java.lang.Long"/>
+</structure>

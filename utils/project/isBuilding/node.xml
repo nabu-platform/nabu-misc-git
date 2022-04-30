@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2022-04-30T15:10:39.777+02:00" lastModified="2022-04-30T16:31:52.284+02:00" leaf="true" version="4">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <properties/>
+    <references>nabu.frameworks.tasks.database.task.search</references>
+    <references>java.lang.Boolean</references>
+    <references>java.lang.String</references>
+    <references>nabu.frameworks.tasks.types.model.tasks.Task</references>
+</node>

@@ -1,0 +1,6 @@
+<structure interface="nabu.misc.git.manage.builds.listBuilds:api" name="pipeline">
+    <structure name="input"/>
+    <structure name="output"/>
+    <structure definition="be.nabu.eai.module.git.GitInformation" maxOccurs="unbounded" minOccurs="0" name="builds"/>
+    <structure definition="nabu.misc.git.utils.project.buildingOutput" maxOccurs="unbounded" minOccurs="0" name="building"/>
+</structure>

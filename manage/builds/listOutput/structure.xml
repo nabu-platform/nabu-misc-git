@@ -1,4 +1,3 @@
 <structure name="listOutput">
-    <structure definition="be.nabu.eai.module.git.GitInformation" maxOccurs="unbounded" minOccurs="0" name="builds"/>
-    <structure definition="be.nabu.eai.module.git.GitInformation" maxOccurs="unbounded" minOccurs="0" name="projects"/>
+    <structure definition="nabu.misc.git.manage.builds.listSingle" maxOccurs="unbounded" minOccurs="0" name="projects"/>
 </structure>

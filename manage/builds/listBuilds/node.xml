@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2022-04-30T15:20:35.588+02:00" lastModified="2022-04-30T16:36:41.662+02:00" leaf="true" version="11">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <properties/>
+    <references>nabu.misc.git.manage.builds.listOutput</references>
+    <references>nabu.misc.git.utils.project.getAllBuilding</references>
+    <references>nabu.utils.Object.first</references>
+    <references>be.nabu.eai.module.git.GitInformation</references>
+    <references>nabu.misc.git.Services.builds</references>
+    <references>nabu.misc.git.utils.project.buildingOutput</references>
+</node>

@@ -3,7 +3,7 @@
 		id="cd95c1f8-41ee-4942-9afc-86987c13e277"
 		lineNumber="1">
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-			disabled="false"
+			disabled="true"
 			id="09caba12-6a84-4627-9e19-0db18205800a"
 			lineNumber="2">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
@@ -38,7 +38,7 @@
 		</steps>
 	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-			disabled="false"
+			disabled="true"
 			id="00406233-d524-48b3-ad35-e2fd416f679f"
 			lineNumber="3">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
@@ -73,7 +73,7 @@
 		</steps>
 	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Finally"
-			disabled="false"
+			disabled="true"
 			id="bcc9a354-8501-4343-a691-37eb437bcde0"
 			lineNumber="4">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
@@ -109,6 +109,41 @@
 					<from>false</from>
 					<to>local</to>
 				</steps>
+			</steps>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="9299b0fc-1b70-4d6a-add2-fdc1aeb0d3c6"
+			lineNumber="6">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="d7629497-3f7e-485c-86c0-cecd4d421cfc"
+				serviceId="nabu.misc.git.utils.project.buildSequential"
+				resultName="result785ddf53207a48c593fe7836d349d238"
+				temporaryMapping="true"
+				x="108"
+				y="58"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="a330e987-4a38-4055-b5cf-aacef8a5f73a"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/project</from>
+				<to>project</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="cc40df66-e66c-44e0-9fb2-b14fd8440179"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/workspace</from>
+				<to>workspace</to>
 			</steps>
 		</steps>
 	</steps>

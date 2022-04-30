@@ -1,0 +1,12 @@
+<structure name="pipeline">
+    <structure name="input">
+        <field name="workspace" type="java.lang.String"/>
+        <field name="project" type="java.lang.String"/>
+    </structure>
+    <structure name="output"/>
+    <structure definition="be.nabu.eai.module.git.GitRelease" maxOccurs="unbounded" minOccurs="0" name="newReleases"/>
+    <structure definition="nabu.misc.git.types.MergeResult" minOccurs="0" name="mergeResult"/>
+    <structure definition="nabu.misc.git.types.MergeEntry" maxOccurs="unbounded" minOccurs="0" name="changedEntries"/>
+    <field minOccurs="0" name="stringifiedChangedEntries" type="java.lang.String"/>
+    <structure definition="nabu.misc.git.signals.buildWithChanges" name="signal"/>
+</structure>

@@ -146,15 +146,25 @@ Vue.view("environment-config", {
 				return false;
 			}
 		},
+		getEvents: function() {
+			var result = {};
+			result.configurationUpdated = {properties:{}};
+			return result;
+		},
 		loadMerge: function() {
 			var self = this;
-			return this.$services.swagger.execute("nabu.misc.git.manage.builds.merge.get", {
-				branch: this.branch,
-				workspace: this.workspace,
-				project: this.project
-			}).then(function(result) {
-				Vue.set(self, "merge", result);
-			});
+			try {
+				return this.$services.swagger.execute("nabu.misc.git.manage.builds.merge.get", {
+					branch: this.branch,
+					workspace: this.workspace,
+					project: this.project
+				}).then(function(result) {
+					Vue.set(self, "merge", result);
+				});
+			}
+			catch (exception) {
+				return this.$services.q.reject(exception);
+			}
 		},
 		saveMerge: function() {
 			var self = this;
@@ -166,6 +176,7 @@ Vue.view("environment-config", {
 					body: self.merge
 				});
 				promise.then(function() {
+					self.$emit("configurationUpdated", {});
 					self.$emit("close");
 				});
 				self.$wait({promise:promise})

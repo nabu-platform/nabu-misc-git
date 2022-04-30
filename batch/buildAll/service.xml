@@ -1,0 +1,73 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="21f4d970-eb16-4a59-92a8-23a2229c1b94"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="54ad5b2c-76d8-4b95-be15-27753126d165"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="22dd8cf6-0657-49ef-8873-a15aa737eca6"
+				serviceId="nabu.misc.git.Services.builds"
+				resultName="result628dbb09e07c43d0b18f05095a3af325"
+				temporaryMapping="true"
+				x="57"
+				y="68"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="b5ddec65-3f70-449c-9d44-4a5ad679a7b5"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result628dbb09e07c43d0b18f05095a3af325/builds</from>
+			<to>builds</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.For"
+			disabled="false"
+			id="06fa57e7-0a2e-44e9-a9e2-b083f1e25d74"
+			lineNumber="3"
+			variable="build">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="a24d9745-002c-433b-9d07-cbee9a45df18"
+				lineNumber="4">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="345f1c25-4e16-496b-9282-47c6a745d63c"
+					serviceId="nabu.misc.git.utils.project.buildSequential"
+					resultName="result177401a023004e69a2a8a85b8d7ed399"
+					temporaryMapping="true"
+					x="87"
+					y="20"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="a839c34b-cc2d-41a6-b4b7-897a8a8bca20"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>build/workspace</from>
+					<to>workspace</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="adfba8c0-3726-4f39-ae4b-51356b8ab2e8"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>build/name</from>
+					<to>project</to>
+				</steps>
+			</steps>
+		</steps>
+		<query>builds</query>
+	</steps>
+</sequence>

@@ -1,4 +1,0 @@
-<structure interface="nabu.misc.git.manage.builds.list:api" name="pipeline">
-    <structure name="input"/>
-    <structure name="output"/>
-</structure>

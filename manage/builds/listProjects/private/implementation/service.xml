@@ -1,0 +1,155 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="5665efea-a705-4e15-833d-bedd0ed0f8e9"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="true"
+			id="d6060f03-a433-4591-8cfe-dad2972f9dc5"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="ca9bb8ad-112d-445e-acf2-c544b57ae06d"
+				serviceId="nabu.misc.git.Services.builds"
+				resultName="resultbc1a583eadc34d098dc205594ee0ad85"
+				temporaryMapping="true"
+				x="81"
+				y="30"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="7fdecb14-d5b6-4528-91c8-a82d7d6941b4"
+				serviceId="nabu.misc.git.Services.projects"
+				resultName="result81f4cbaaef4d40dd8759056e04bbc40b"
+				temporaryMapping="true"
+				x="120"
+				y="125"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="172840fa-094f-474f-9ee1-aef45d35d7b0"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result81f4cbaaef4d40dd8759056e04bbc40b/projects</from>
+			<to>output/content/projects</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Map the not"
+			disabled="false"
+			id="4ebdeb9e-e2e5-4795-ad19-ec5f4922f977"
+			label="input/query/workspace != null"
+			lineNumber="3">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="d06cfc18-99e7-42a0-8770-377e5ce3b1f1"
+				serviceId="nabu.misc.git.Services.builds"
+				resultName="resultbdbdb008f0a449f2989d81c55c5f8f1d"
+				temporaryMapping="true"
+				x="288"
+				y="111"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="a0de20e2-5ef6-48f7-8af2-af75942feacd"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>resultbdbdb008f0a449f2989d81c55c5f8f1d/builds[workspace == /input/query/workspace]/name</from>
+			<to>input/query/not</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="100b1501-8f2a-4cdb-a4a6-2765c292abb4"
+			lineNumber="4">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="e8659918-8fd7-4cf9-a29f-94ea43e20dcb"
+				serviceId="nabu.misc.git.Services.projects"
+				resultName="result73b9f49010334e97bc410dc1a4bd6470"
+				temporaryMapping="true"
+				x="57"
+				y="54"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="ff93059a-58ad-4395-a818-fb7ca8b7579b"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result73b9f49010334e97bc410dc1a4bd6470/projects[(/input/query/q == null || name ~ "(?i).*" + /input/query/q + ".*") &amp;&amp; (/input/query/not == null || name !# /input/query/not)]</from>
+			<to>projects</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.For"
+			disabled="false"
+			id="27ae51bb-6e96-4ced-b824-0a23aef54ee0"
+			lineNumber="5"
+			variable="project"
+			into="output/content/projects">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="6bcdee8f-c79f-4cb7-8c10-8131f8377983"
+				lineNumber="6">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="06508e28-4fb0-4020-9f71-41bf0db1d524"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>project/description</from>
+				<to>output/content/projects[0]/description</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="7ccdd097-c210-403b-b8fd-316a29aaa0e5"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>project/name</from>
+				<to>output/content/projects[0]/name</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="5d3f24a1-cfa3-4822-97ee-e926c3d35c8a"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>project/password</from>
+				<to>output/content/projects[0]/password</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="2330bafa-4bad-4861-a5af-de5a3ba58469"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>project/username</from>
+				<to>output/content/projects[0]/username</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="490f8ef3-8079-483c-9996-8241c3fdb2ae"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>project/workspace</from>
+				<to>output/content/projects[0]/workspace</to>
+			</steps>
+		</steps>
+		<query>projects</query>
+	</steps>
+</sequence>

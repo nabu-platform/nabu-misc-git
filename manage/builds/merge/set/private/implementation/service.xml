@@ -3,7 +3,7 @@
 		id="61eb3930-7d31-4c1f-b05b-0d6ebad01253"
 		lineNumber="1">
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-			disabled="false"
+			disabled="true"
 			id="09caba12-6a84-4627-9e19-0db18205800a"
 			lineNumber="2">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
@@ -50,6 +50,7 @@
 				x="75"
 				y="46"
 				invocationOrder="0"
+				target="nabu.frameworks.tasks.providers.executor"
 				asynchronous="false"
 				recache="false">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
@@ -88,10 +89,16 @@
 				<from>input/path/workspace</from>
 				<to>workspace</to>
 			</steps>
+			<targetProperties
+					collectionIndex="groupId">=input/path/workspace</targetProperties>
+			<targetProperties
+					collectionIndex="contextId">=input/path/project</targetProperties>
+			<targetProperties
+					collectionIndex="queue">="deployment-" + input/path/workspace + "-" + input/path/project</targetProperties>
 		</steps>
 	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Finally"
-			disabled="false"
+			disabled="true"
 			id="bcc9a354-8501-4343-a691-37eb437bcde0"
 			lineNumber="4">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"

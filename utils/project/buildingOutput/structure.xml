@@ -1,0 +1,6 @@
+<structure name="buildingOutput">
+    <field name="workspace" type="java.lang.String"/>
+    <field name="project" type="java.lang.String"/>
+    <field name="created" type="java.util.Date"/>
+    <field minOccurs="0" name="started" timezone="UTC" type="java.util.Date"/>
+</structure>

@@ -1,0 +1,10 @@
+<structure name="pipeline">
+    <structure name="input">
+        <field name="workspace" type="java.lang.String"/>
+        <field name="project" type="java.lang.String"/>
+    </structure>
+    <structure name="output">
+        <field name="isBuilding" type="java.lang.Boolean"/>
+    </structure>
+    <structure collectionName="Tasks" definition="nabu.frameworks.tasks.types.model.tasks.Task" name="active" namespace="nabu.frameworks.tasks.types.model.tasks"/>
+</structure>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2021-10-23T07:20:08.859+02:00" lastModified="2022-04-29T16:33:48.041+02:00" leaf="true" version="8">
+<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2021-10-23T07:20:08.859+02:00" lastModified="2022-04-30T16:38:26.629+02:00" leaf="true" version="12">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
     <properties/>
     <references>nabu.misc.git.types.MergeResult</references>
     <references>nabu.utils.Lock.lock</references>
     <references>nabu.misc.git.Services.setMergeResult</references>
+    <references>nabu.frameworks.tasks.providers.executor</references>
     <references>nabu.utils.Lock.unlock</references>
 </node>

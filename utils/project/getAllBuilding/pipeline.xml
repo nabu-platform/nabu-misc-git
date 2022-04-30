@@ -1,0 +1,7 @@
+<structure name="pipeline">
+    <structure name="input"/>
+    <structure name="output">
+        <structure definition="nabu.misc.git.utils.project.buildingOutput" maxOccurs="unbounded" minOccurs="0" name="building"/>
+    </structure>
+    <structure collectionName="Tasks" definition="nabu.frameworks.tasks.types.model.tasks.Task" maxOccurs="unbounded" minOccurs="0" name="active" namespace="nabu.frameworks.tasks.types.model.tasks"/>
+</structure>
