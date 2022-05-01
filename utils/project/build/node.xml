@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2022-04-30T14:59:21.814+02:00" lastModified="2022-04-30T15:10:15.779+02:00" leaf="true" version="14">
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2022-04-30T14:59:21.814+02:00" lastModified="2022-05-01T07:13:43.129+02:00" leaf="true" version="18">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
     <properties/>
-    <references>nabu.utils.String.join</references>
     <references>nabu.misc.git.types.MergeResult</references>
     <references>nabu.misc.git.Services.build</references>
-    <references>nabu.frameworks.signals.fire</references>
+    <references>nabu.misc.git.hooks.newRelease</references>
     <references>java.lang.String</references>
     <references>be.nabu.eai.module.git.GitRelease</references>
     <references>nabu.misc.git.types.MergeEntry</references>

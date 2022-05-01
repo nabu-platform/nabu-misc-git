@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2022-05-01T06:59:34.198+02:00" lastModified="2022-05-01T07:03:18.424+02:00" leaf="true" version="9">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <properties/>
+    <references>nabu.misc.git.hooks.environmentChanged</references>
+    <references>nabu.misc.git.types.MergeResult</references>
+    <references>nabu.utils.String.replace</references>
+    <references>java.lang.Long</references>
+    <references>nabu.misc.git.Services.setMergeResult</references>
+    <references>java.lang.String</references>
+</node>

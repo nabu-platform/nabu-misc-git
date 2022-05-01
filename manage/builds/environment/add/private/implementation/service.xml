@@ -55,4 +55,48 @@
 			</steps>
 		</steps>
 	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="8d06a7eb-771e-474f-8fc0-c7a61d228164"
+			lineNumber="3">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="16bc7d07-cdf4-4b58-a9de-a1d05ae70d2d"
+				serviceId="nabu.misc.git.hooks.environmentAdded"
+				resultName="resulta537f245c6884888b5ad9a93fb9bbc76"
+				temporaryMapping="true"
+				x="45"
+				y="32"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="466846fa-4ad4-4368-a2c2-4d83e8183020"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/project</from>
+				<to>project</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="b828df9c-1b94-4cff-99b8-718d3d8d5223"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/workspace</from>
+				<to>workspace</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="5f1554a2-d16b-443b-a634-1392f6ac0f56"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/content/name</from>
+				<to>environment</to>
+			</steps>
+		</steps>
+	</steps>
 </sequence>

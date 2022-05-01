@@ -127,44 +127,14 @@
 						disabled="false"
 						id="afb5ea14-d655-4171-b902-24f2ecf31a0b"
 						lineNumber="7">
-					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-							disabled="false"
-							id="27ceb482-84d8-40a0-8887-3c0090d6f9c7"
-							serviceId="nabu.utils.String.join"
-							resultName="result4247cfcbd4c44dcb99ef02859de760ae"
-							temporaryMapping="true"
-							x="148"
-							y="179"
-							invocationOrder="0"
-							asynchronous="false"
-							recache="false">
-						<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-								disabled="false"
-								id="764e9c08-abbb-49d0-9573-af9417674a12"
-								mask="false"
-								optional="false"
-								fixedValue="false">
-							<from>changedEntries/entryId</from>
-							<to>parts</to>
-						</steps>
-						<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-								disabled="false"
-								id="0305cfec-edea-433e-bda9-1ea0080d95e2"
-								mask="false"
-								optional="false"
-								fixedValue="true">
-							<from>, </from>
-							<to>separator</to>
-						</steps>
-					</steps>
 					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 							disabled="false"
-							id="cb30365d-ee13-41d3-9ba8-a5d2695c9596"
+							id="44be80d6-71c0-4de5-bcd1-3d5817fb5f25"
 							mask="false"
 							optional="false"
 							fixedValue="false">
-						<from>result4247cfcbd4c44dcb99ef02859de760ae/string</from>
-						<to>stringifiedChangedEntries</to>
+						<from>changedEntries[0]/entryId</from>
+						<to>changedEntryIds[0]</to>
 					</steps>
 				</steps>
 				<steps xsi:type="be.nabu.libs.services.vm.step.Break"
@@ -176,105 +146,65 @@
 				</steps>
 				<query>patchVersion/environments</query>
 			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
-					comment="Emit signal"
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					disabled="false"
-					id="d3f27713-111d-4c94-9808-d2db5086c9d7"
-					label="stringifiedChangedEntries != null"
+					id="96a48752-bfb5-4448-bc0d-82f723915cb2"
 					lineNumber="9">
-				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-						comment="Map signal"
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
-						id="ee433524-5274-486e-af9d-c8d66b19ed99"
-						lineNumber="10">
+						id="58a48889-4bf3-4720-8efe-3aa3beb14c0b"
+						serviceId="nabu.misc.git.hooks.newRelease"
+						resultName="resultd8db01e077434b4abd255dff41621cca"
+						temporaryMapping="true"
+						x="166"
+						y="64"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 							disabled="false"
-							id="b33b9658-ac1a-40be-a097-7389b684db6d"
+							id="e35a7d2e-5c01-485b-8fe7-e5e64c1e99de"
 							mask="false"
 							optional="false"
 							fixedValue="false">
 						<from>input/workspace</from>
-						<to>signal/workspace</to>
+						<to>workspace</to>
 					</steps>
 					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 							disabled="false"
-							id="73b3b945-1f49-46c4-9655-4b44cfc3e401"
+							id="aef91894-4316-458b-9dbd-1a65495677a4"
 							mask="false"
 							optional="false"
 							fixedValue="false">
 						<from>input/project</from>
-						<to>signal/project</to>
+						<to>project</to>
 					</steps>
 					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 							disabled="false"
-							id="27a89c32-edfd-4155-95c5-e8cb3546ead7"
-							mask="false"
-							optional="false"
-							fixedValue="false">
-						<from>stringifiedChangedEntries</from>
-						<to>signal/changedEntries</to>
-					</steps>
-					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-							disabled="false"
-							id="b78147a1-64a3-433d-8ddc-04cd20cff7e2"
+							id="5a495fb6-7eee-4d96-955c-3a382d2e9734"
 							mask="false"
 							optional="false"
 							fixedValue="false">
 						<from>newRelease/version</from>
-						<to>signal/version</to>
+						<to>version</to>
 					</steps>
 					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 							disabled="false"
-							id="48abec92-3a18-4e3c-8461-32f4762c1a89"
+							id="c454a0b1-6bc7-4307-8500-f5fbbd4bf9d6"
 							mask="false"
 							optional="false"
 							fixedValue="false">
 						<from>patchVersion/patch</from>
-						<to>signal/patch</to>
+						<to>patch</to>
 					</steps>
-				</steps>
-				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-						disabled="false"
-						id="efd29bb6-1c48-462a-b5c8-0f18b7900b32"
-						lineNumber="11">
-					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 							disabled="false"
-							id="66485eb6-4c3e-4813-8254-5aaa61b70108"
-							serviceId="nabu.frameworks.signals.fire"
-							resultName="result06022c7ce73c4e32b3a69fe4b2230601"
-							temporaryMapping="true"
-							x="45"
-							y="107"
-							invocationOrder="0"
-							asynchronous="false"
-							recache="false">
-						<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-								disabled="false"
-								id="e852f282-3362-46b9-8a95-76db1fde96ae"
-								mask="false"
-								optional="false"
-								fixedValue="false">
-							<from>signal</from>
-							<to>signal</to>
-						</steps>
-						<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-								disabled="false"
-								id="5850f22f-54fd-47af-a6f0-b0e57af9c3e2"
-								mask="false"
-								optional="false"
-								fixedValue="false">
-							<from>input/workspace</from>
-							<to>groupId</to>
-						</steps>
-						<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-								disabled="false"
-								id="bbee7d7e-b05a-40da-bff6-1d3c83d2e58e"
-								mask="false"
-								optional="false"
-								fixedValue="false">
-							<from>input/project</from>
-							<to>contextId</to>
-						</steps>
+							id="ba65329d-5db4-4628-b14b-23f3f8338488"
+							mask="false"
+							optional="false"
+							fixedValue="false">
+						<from>changedEntryIds</from>
+						<to>changedEntries</to>
 					</steps>
 				</steps>
 			</steps>

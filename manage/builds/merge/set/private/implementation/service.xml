@@ -39,32 +39,32 @@
 	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="0c0b0be7-f155-45a9-bdff-55ddbce73c36"
+			id="a9f82b01-7073-43f0-89fb-d83eed3c909c"
 			lineNumber="3">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
-				id="30f44441-5db0-4d64-8659-ed987cce095e"
-				serviceId="nabu.misc.git.Services.setMergeResult"
-				resultName="resulta28c9bc0f6914ff6afc4ace88d99b1ae"
+				id="fbf6e445-eefa-498d-b56c-b630157b5c0b"
+				serviceId="nabu.misc.git.utils.project.merge"
+				resultName="result625da961179649899bfe5d52ed6117df"
 				temporaryMapping="true"
-				x="75"
-				y="46"
+				x="31"
+				y="38"
 				invocationOrder="0"
 				target="nabu.frameworks.tasks.providers.executor"
 				asynchronous="false"
 				recache="false">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
-					id="f4893183-ec0b-47f6-ba0c-4c36f407cf6d"
+					id="1346df2c-da9a-4b82-8f3d-2ffb9ae00398"
 					mask="false"
 					optional="false"
 					fixedValue="false">
 				<from>input/path/project</from>
-				<to>name</to>
+				<to>project</to>
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
-					id="ade3b7e3-8a6e-4967-ab28-0bb6e56e01d9"
+					id="31e9738e-158d-49e5-aa74-1538b6856048"
 					mask="false"
 					optional="false"
 					fixedValue="false">
@@ -73,21 +73,21 @@
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
-					id="8295e20c-21f3-4771-b32c-ab8d4d48389b"
-					mask="false"
-					optional="false"
-					fixedValue="false">
-				<from>input/content</from>
-				<to>result</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="74285ea7-e479-47ca-b89c-8582ab5c1ca1"
+					id="20e03d56-e2b6-452b-8a68-d957e24e17e2"
 					mask="false"
 					optional="false"
 					fixedValue="false">
 				<from>input/path/workspace</from>
 				<to>workspace</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="57253829-baf5-4d49-9492-4d6500e370b7"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/content</from>
+				<to>merge</to>
 			</steps>
 			<targetProperties
 					collectionIndex="groupId">=input/path/workspace</targetProperties>

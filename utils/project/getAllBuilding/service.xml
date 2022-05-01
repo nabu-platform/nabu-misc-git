@@ -116,7 +116,7 @@
 					mask="false"
 					optional="false"
 					fixedValue="true">
-				<from>nabu.misc.git.Services.setMergeResult</from>
+				<from>nabu.misc.git.utils.project.merge</from>
 				<to>parameters/task</to>
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
