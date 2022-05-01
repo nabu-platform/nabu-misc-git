@@ -124,6 +124,7 @@
 					</steps>
 				</steps>
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+						comment="Map the changed entries, should be the same for each environment (?)"
 						disabled="false"
 						id="afb5ea14-d655-4171-b902-24f2ecf31a0b"
 						lineNumber="7">
@@ -137,12 +138,59 @@
 						<to>changedEntryIds[0]</to>
 					</steps>
 				</steps>
-				<steps xsi:type="be.nabu.libs.services.vm.step.Break"
-						comment="All environments should have the same changes?"
+				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+						comment="Make sure we calculate the zip"
 						disabled="false"
-						id="455b265d-09ce-40fc-b528-eaf8491f26ff"
+						id="e9f85ef3-e3db-4f6a-9c40-0ba243949781"
 						lineNumber="8">
-					<count>1</count>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+							disabled="false"
+							id="a05f5638-5cf8-432a-a593-0c12ef10b027"
+							serviceId="nabu.misc.git.Services.zip"
+							resultName="resultdca35f0878374169b9afc322bc5e0b82"
+							temporaryMapping="true"
+							x="92"
+							y="165"
+							invocationOrder="0"
+							asynchronous="false"
+							recache="false">
+						<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+								disabled="false"
+								id="5d0651f4-0a97-4217-8917-1649ad912065"
+								mask="false"
+								optional="false"
+								fixedValue="false">
+							<from>input/workspace</from>
+							<to>workspace</to>
+						</steps>
+						<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+								disabled="false"
+								id="b93bd730-e042-4591-9397-23190b9cc113"
+								mask="false"
+								optional="false"
+								fixedValue="false">
+							<from>input/project</from>
+							<to>name</to>
+						</steps>
+						<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+								disabled="false"
+								id="d491549d-40f5-4959-8bb0-66a53cdeb2cc"
+								mask="false"
+								optional="false"
+								fixedValue="false">
+							<from>environment/branch</from>
+							<to>branch</to>
+						</steps>
+						<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+								disabled="false"
+								id="2158c793-a2d4-4be3-8d81-776589660332"
+								mask="false"
+								optional="false"
+								fixedValue="true">
+							<from>true</from>
+							<to>includeRoot</to>
+						</steps>
+					</steps>
 				</steps>
 				<query>patchVersion/environments</query>
 			</steps>
