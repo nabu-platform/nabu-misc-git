@@ -44,6 +44,15 @@
 				<from>input/path/workspace</from>
 				<to>workspace</to>
 			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="f079d041-830c-4ae4-b3aa-4442762cd782"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>false</from>
+				<to>includeRoot</to>
+			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 				disabled="false"

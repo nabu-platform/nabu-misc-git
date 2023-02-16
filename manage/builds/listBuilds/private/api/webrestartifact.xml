@@ -2,6 +2,7 @@
 <restInterface>
     <method>GET</method>
     <path>/builds/{workspace}</path>
+    <queryParameters>q</queryParameters>
     <role>$user</role>
     <output>nabu.misc.git.manage.builds.listOutput</output>
     <lenient>true</lenient>

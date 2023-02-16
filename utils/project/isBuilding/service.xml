@@ -50,7 +50,7 @@
 					mask="false"
 					optional="false"
 					fixedValue="true">
-				<from>="deployment-" + input/workspace + "-" + input/project</from>
+				<from>="git-" + input/workspace + "-" + input/project</from>
 				<to>parameters/queue</to>
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"

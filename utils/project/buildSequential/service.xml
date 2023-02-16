@@ -86,7 +86,7 @@
 			<targetProperties
 					collectionIndex="contextId">=input/project</targetProperties>
 			<targetProperties
-					collectionIndex="queue">="deployment-" + input/workspace + "-" + input/project</targetProperties>
+					collectionIndex="queue">="git-" + input/workspace + "-" + input/project</targetProperties>
 		</steps>
 	</steps>
 </sequence>

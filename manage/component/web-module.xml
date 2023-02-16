@@ -16,5 +16,4 @@
     <webFragments>nabu.misc.git.manage.builds.isBuilding</webFragments>
     <webFragments>nabu.misc.git.manage.builds.checkHotfix</webFragments>
     <webFragments>nabu.misc.git.manage.builds.listBuilds</webFragments>
-    <audience>MANAGER</audience>
 </webModule>

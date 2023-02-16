@@ -28,7 +28,7 @@
 						<n-form-combo v-model="parameter.current" v-if="parameter.enumeration != null && parameter.enumeration.length > 0" :items="parameter.enumeration"
 							:label="paramLabel(parameter)" :after="parameter.description"
 							:info="values(parameter)"/>
-						<n-form-switch v-else-if="parameter.type == 'boolean'" :value="parameter.current == 'true' || (parameter.current == null && parameter.defaultValue == 'true')" @input="function(value) { parameter.current = value ? 'true' : 'false' }"
+						<n-form-switch v-else-if="parameter.type == 'boolean'" :value="parameter.current == 'true' || (parameter.current == null && parameter.defaultValue == 'true')" @input="function(value) { $window.Vue.set(parameter, 'current', value ? 'true' : 'false') }"
 							:label="paramLabel(parameter)" :after="parameter.description"
 							:info="values(parameter)"/>
 						<n-form-text v-else-if="parameter.type == 'password'" v-model="parameter.current" :label="paramLabel(parameter)"

@@ -94,7 +94,7 @@
 			<targetProperties
 					collectionIndex="contextId">=input/path/project</targetProperties>
 			<targetProperties
-					collectionIndex="queue">="deployment-" + input/path/workspace + "-" + input/path/project</targetProperties>
+					collectionIndex="queue">="git-" + input/path/workspace + "-" + input/path/project</targetProperties>
 		</steps>
 	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Finally"
