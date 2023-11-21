@@ -1,3 +1,4 @@
 <structure name="query">
     <field minOccurs="0" name="q" type="java.lang.String"/>
+    <field maxOccurs="unbounded" minOccurs="0" name="project" type="java.lang.String"/>
 </structure>

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2021-10-22T13:12:13.448+02:00" lastModified="2022-04-30T15:17:19.804+02:00" leaf="true" version="11">
+<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2021-10-22T13:12:13.448+02:00" lastModified="2023-10-08T13:56:21.103+02:00" leaf="true" version="13">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
+    <locked>false</locked>
     <properties/>
     <references>nabu.utils.Lock.lock</references>
     <references>nabu.misc.git.utils.project.buildSequential</references>

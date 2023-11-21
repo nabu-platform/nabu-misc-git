@@ -1,4 +1,4 @@
-<structure interface="$self:api" name="pipeline">
+<structure interface="nabu.misc.git.manage.builds.checkHotfix:api" name="pipeline">
     <structure name="input"/>
     <structure name="output"/>
 </structure>

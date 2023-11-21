@@ -137,4 +137,19 @@
 		</steps>
 		<query>builds</query>
 	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="fb406192e25b4d08ba5b6943face9524"
+			label="input/query/project != null"
+			lineNumber="5">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="c2aed5a99e47441096730d99556558f0"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>output/content/projects[name # /input/query/project]</from>
+			<to>output/content/projects</to>
+		</steps>
+	</steps>
 </sequence>

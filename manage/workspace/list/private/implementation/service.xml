@@ -95,4 +95,19 @@
 		</steps>
 		<query>workspaces</query>
 	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="7b0b04f9833b4c4cbc1ec189a3fd83f8"
+			label="input/query/q != null"
+			lineNumber="6">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="c2862bf2a3c94af1aeaf9f058432ad4e"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>output/content/workspaces[name ~ "(?i).*" + /input/query/q + ".*"]</from>
+			<to>output/content/workspaces</to>
+		</steps>
+	</steps>
 </sequence>

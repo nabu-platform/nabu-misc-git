@@ -1,9 +1,11 @@
 <sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		disabled="false"
-		id="264ea835-cff0-4e09-89bc-4f761546f1af">
+		id="264ea835-cff0-4e09-89bc-4f761546f1af"
+		lineNumber="1">
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="72d5e75c-fe36-4ca9-8c24-eaa4052dddf6">
+			id="72d5e75c-fe36-4ca9-8c24-eaa4052dddf6"
+			lineNumber="2">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="f57391a9-a055-42b2-9a9b-734a1961e0d2"
@@ -37,7 +39,8 @@
 	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="595ed069-d560-4c59-ad74-e4ace31a2469">
+			id="595ed069-d560-4c59-ad74-e4ace31a2469"
+			lineNumber="3">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="2211f89a-50ae-4698-933b-dd524300dace"
@@ -64,7 +67,8 @@
 			comment="If it is locally built, immediately build it"
 			disabled="false"
 			id="3d763895-fa7a-4c5c-ba97-319ff8f4d2dd"
-			label="localBuild">
+			label="localBuild"
+			lineNumber="4">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="e5253069-d56c-44cb-81dd-5e5d231f332d"

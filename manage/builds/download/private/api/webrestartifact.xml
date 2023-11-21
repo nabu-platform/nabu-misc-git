@@ -2,11 +2,18 @@
 <restInterface>
     <method>GET</method>
     <path>/build/{workspace}/{project}/archive/{branch}</path>
+    <queryParameters>downloadAs, downloadCode</queryParameters>
     <role>$user</role>
+    <permissionAction>build.manage</permissionAction>
+    <useServiceContextAsPermissionContext>false</useServiceContextAsPermissionContext>
+    <useWebApplicationAsPermissionContext>false</useWebApplicationAsPermissionContext>
+    <useProjectAsPermissionContext>false</useProjectAsPermissionContext>
+    <useGlobalPermissionContext>true</useGlobalPermissionContext>
     <outputAsStream>true</outputAsStream>
     <lenient>true</lenient>
     <webApplicationId>false</webApplicationId>
     <geoPosition>false</geoPosition>
+    <useAsAuthorizationServiceContext>false</useAsAuthorizationServiceContext>
     <language>false</language>
     <allowFormBinding>false</allowFormBinding>
     <caseInsensitive>false</caseInsensitive>
@@ -14,13 +21,19 @@
     <allowCookiesWithoutReferer>false</allowCookiesWithoutReferer>
     <allowCookiesWithExternalReferer>false</allowCookiesWithExternalReferer>
     <request>false</request>
-    <allowHeaderAsQueryParameter>false</allowHeaderAsQueryParameter>
+    <allowHeaderAsQueryParameter>true</allowHeaderAsQueryParameter>
     <useServerCache>false</useServerCache>
     <source>false</source>
     <allowRaw>false</allowRaw>
     <domain>false</domain>
+    <origin>false</origin>
+    <scheme>false</scheme>
+    <temporaryAlias>=input/query/downloadAs</temporaryAlias>
+    <temporarySecret>=input/query/downloadCode</temporarySecret>
     <ignoreOffline>false</ignoreOffline>
     <allowRootArrays>false</allowRootArrays>
     <captureErrors>false</captureErrors>
     <captureSuccessful>false</captureSuccessful>
+    <limitedToInterface>false</limitedToInterface>
+    <allowExplicitResponseCode>false</allowExplicitResponseCode>
 </restInterface>

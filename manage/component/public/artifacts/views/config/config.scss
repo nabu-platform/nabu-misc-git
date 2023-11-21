@@ -23,9 +23,6 @@
 		padding: 1rem 0rem;
 		//display: flex;
 		//align-items: center;
-		input {
-			height: 2rem;
-		}
 	}
 	.merge-entries {
 		width: calc(20vw - 2px);
@@ -70,14 +67,14 @@
 		}
 		.merge-parameter {
 			display: flex;
-			align-items: flex-start;
+			//align-items: flex-start;
 			.buttons {
 				flex-grow: 0;
 				white-space: nowrap;
-				border: solid 1px $warning-color;
+				border: solid 1px #E0A800;
 				padding: 0.3rem;
 				margin-left: 0.7rem;
-				background-color: lighten($warning-color, 60%);
+				background-color: lighten(#E0A800, 60%);
 				border-radius: 5px;
 			}
 		}
@@ -102,8 +99,8 @@
 			margin-left: 3px;
 			/* remove the border */
 			margin-right: auto;
-			border: solid 1px $page-primary-dark;
-			background-color: $page-primary;
+			border: solid 1px #ccc;
+			background-color: white;
 			border-radius: 5px;
 			border-bottom: none;
 			> label {
@@ -115,7 +112,7 @@
 			}
 			.n-info {
 				position: static;
-				color: $page-primary-text;
+				color: #333;
 				top: 0.3rem;
 				line-height: 1.2rem;
 				margin: 0;

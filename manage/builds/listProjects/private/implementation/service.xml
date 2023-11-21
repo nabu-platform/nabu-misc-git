@@ -152,4 +152,48 @@
 		</steps>
 		<query>projects</query>
 	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="3beb7c7f163a4d3e85143ad01cf2dd3f"
+			lineNumber="7">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="e12ed84a3a774779a8f6892a023b3b05"
+				serviceId="nabu.utils.List.sort"
+				resultName="resulte08b7df5f02e4719a848bb00bfa86ba3"
+				temporaryMapping="true"
+				x="97"
+				y="57"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="9f9b73530d924290815d08a75c45a112"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>output/content/projects</from>
+				<to>list</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="8717e17a12f64967929ecf9470fcf796"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>name</from>
+				<to>fields[0]</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="f476cb7b1e6e41c686b1545d92da0505"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>resulte08b7df5f02e4719a848bb00bfa86ba3/list</from>
+			<to>output/content/projects</to>
+		</steps>
+	</steps>
 </sequence>
